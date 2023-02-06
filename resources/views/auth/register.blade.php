@@ -77,10 +77,10 @@
 
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                    <option value="" disabled hidden selected>Pilih Jenis</option>
-                                    <option value="man">Pria</option>
-                                    <option value="woman">Wanita</option>
-                                    <option value="other">Privasi</option>
+                                    <option value="" disabled hidden selected>Pilih Jenis Kelamin</option>
+                                    <option value="laki">Pria</option>
+                                    <option value="perempuan">Wanita</option>
+                                    <option value="rahasia">Privasi</option>
                                 </select>
 
                                 @error('jenis_kelamin')
