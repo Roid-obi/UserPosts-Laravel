@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.app')
 
 @section('content')
 <div class="container">
@@ -78,9 +78,9 @@
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Jenis Kelamin</option>
-                                    <option value="laki">Pria</option>
+                                    <option value="lelaki">Laki tulen</option>
                                     <option value="perempuan">Wanita</option>
-                                    <option value="rahasia">Privasi</option>
+                                    <option value="rahasia">Rahasia</option>
                                 </select>
 
                                 @error('jenis_kelamin')
@@ -109,6 +109,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
 
                         {{-- Password --}}

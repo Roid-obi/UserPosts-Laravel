@@ -27,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'alamat',
         'slug',
         'password',
+        'gambar'
     ];
 
     /**
@@ -37,6 +38,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    protected $attributes = [  //default value
+        'gambar' => '',  //defaultnya kosong
+        
     ];
 
     /**
@@ -55,12 +61,5 @@ class User extends Authenticatable implements MustVerifyEmail
 
     //     return $this->verification_token;
     // }
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($model) {
-            $model->slug = Str::slug($model->name);
-        });
-    }
+    
 }

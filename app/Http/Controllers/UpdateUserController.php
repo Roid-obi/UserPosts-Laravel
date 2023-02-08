@@ -6,13 +6,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateUserController extends Controller
 {
     public function edit($id)
     {
-        $gender = Auth::user()->gender;
-        Session::flash('jenis_kelamin', $gender);
+        $gender = Auth::user()->jenis_kelamin;
+        Session::flash('gender', $gender);
         return view('edit');
     }
     
@@ -22,17 +23,28 @@ class UpdateUserController extends Controller
         $user = User::find($id);
         $req->validate([
             'nama' => 'required|string',
-            'alamat' => 'required|string|',
+            'alamat' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|string',
+            'gambar' => 'required'
         ]);
         $data = 
         [
             'nama' => $req->nama,
             'alamat' => $req->alamat,
             'tanggal_lahir' => $req->tanggal_lahir,
-            'jenis_kelamin' => $req->jenis_kelamin,
+            'jenis kelamin' => $req->jenis_kelamin,
         ];
+        if ($req->hasFile('gambar')) {
+            $gambar = $req->file('gambar');
+            $fileName = $gambar->getClientOriginalName();
+            $gambar->storeAs('public/images/', $fileName);
+
+        if ($user->gambar !== null) {
+            Storage::delete('public/images/' . $user->gambar);
+        }
+            $data['gambar'] = $fileName;
+        }
         $user->update($data);
         return redirect('/home');
     }

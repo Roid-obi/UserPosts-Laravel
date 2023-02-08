@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Update') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/update/users/submit" autocomplete="off">
+                    <form method="POST" action="/update/users/submit" autocomplete="off" enctype="multipart/form-data"> {{-- enctype="multipart/form-data" : agar data luar bisa masuk --}}
                         @csrf
 
                         {{-- Name --}}
@@ -16,7 +16,7 @@
                             <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control @error('namea') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="name">
+                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="name">
 
                                 @error('nama')
                                     <span class="invalid-feedback" role="alert">
@@ -26,20 +26,6 @@
                             </div>
                         </div>
 
-                        {{-- Email --}}
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         {{-- Alamat --}}
                         <div class="row mb-3">
@@ -78,9 +64,9 @@
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Jenis</option>
-                                    <option value="laki tulen">Laki tulen</option>
+                                    <option value="Lelaki">lelaki</option>
                                     <option value="Cewek">Cewek</option>
-                                    <option value="privasi">Rahasia</option>
+                                    <option value="Privasi">Rahasia</option>
                                 </select>
 
                                 @error('jenis_kelamin')
@@ -110,8 +96,23 @@
                             </div>
                         </div>
 
+                        {{-- gambar --}}
+                        <div class="row mb-3">
+                            <label for="gambar" class="col-md-4 col-form-label text-md-end">{{ __('gambar') }}</label>
 
-                        {{-- update t  --}}
+                            <div class="col-md-6">
+                                <input id="gambar" type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" autocomplete="gambar">
+
+                                @error('gambar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        {{-- update tombol  --}}
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
