@@ -4,7 +4,7 @@
 <div class="container">
     
     @if (Auth::user())
-    <div class="text-center">
+    <div class="text-left">
         <img src="{{ asset('/storage/public/images/'.Auth::user()->gambar ) }}" class="img-circle elevation-2" style="width: 200px">
         <h3>Nama : {{ Auth::user()->nama }}</h3>
         <h3>Email : {{ Auth::user()->email }}</h3>

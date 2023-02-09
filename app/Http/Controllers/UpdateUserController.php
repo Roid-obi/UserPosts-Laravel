@@ -12,8 +12,8 @@ class UpdateUserController extends Controller
 {
     public function edit($id)
     {
-        $gender = Auth::user()->jenis_kelamin;
-        Session::flash('gender', $gender);
+        $kelamin = Auth::user()->jenis_kelamin;
+        Session::flash('jenis_kelamin', $kelamin);
         return view('edit');
     }
     
@@ -25,7 +25,7 @@ class UpdateUserController extends Controller
             'nama' => 'required|string',
             'alamat' => 'required|string',
             'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required|string',
+            'jenis_kelamin' => 'required',
             'gambar' => 'required'
         ]);
         $data = 

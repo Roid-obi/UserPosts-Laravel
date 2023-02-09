@@ -41,55 +41,7 @@
                             </div>
                         </div>
 
-                        {{-- Alamat --}}
-                        <div class="row mb-3">
-                            <label for="alamat" class="col-md-4 col-form-label text-md-end">{{ __('Tempat Tinggal') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" autocomplete="alamat">
-
-                                @error('alamat')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- tanggal_lahir --}}
-                        <div class="row mb-3">
-                            <label for="tanggal_lahir" class="col-md-4 col-form-label text-md-end">{{ __('Tanggal Lahir') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" autocomplete="tanggal_lahir">
-
-                                @error('tanggal_lahir')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- jenis_kelamin --}}
-                        <div class="row mb-3">
-                            <label for="jenis_kelamin" class="col-md-4 col-form-label text-md-end">{{ __('Jenis Kelamin') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                    <option value="" disabled hidden selected>Pilih Jenis Kelamin</option>
-                                    <option value="lelaki">Laki tulen</option>
-                                    <option value="perempuan">Wanita</option>
-                                    <option value="rahasia">Rahasia</option>
-                                </select>
-
-                                @error('jenis_kelamin')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                        
                         
                         {{-- Role --}}
                         <div class="row mb-3">
@@ -98,8 +50,8 @@
                             <div class="col-md-6">
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Role</option>
-                                    <option value="admin" disabled>Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user" disabled>User</option>
                                 </select>
 
                                 @error('role')

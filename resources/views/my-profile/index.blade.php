@@ -90,7 +90,7 @@
                                         <option
                                             {{ old('jenis_kelamin', auth()->user()->jenis_kelamin) === "rahasia" ? 'selected' : '' }}
                                             value="Cewek"
-                                        >Cewek</option>
+                                        >rahasia</option>
                                     </select>
 
                                     @error('jenis_kelamin')

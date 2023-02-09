@@ -64,9 +64,9 @@
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Jenis</option>
-                                    <option value="Lelaki">lelaki</option>
-                                    <option value="Cewek">Cewek</option>
-                                    <option value="Privasi">Rahasia</option>
+                                    <option value="Pria">Pria tulen</option>
+                                    <option value="Wanita">Wanita</option>
+                                    <option value="Rahasia">Rahasia</option>
                                 </select>
 
                                 @error('jenis_kelamin')
@@ -84,8 +84,8 @@
                             <div class="col-md-6">
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Role</option>
-                                    <option value="admin" disabled>Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user"disabled>User</option>
                                 </select>
 
                                 @error('role')

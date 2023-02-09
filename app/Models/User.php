@@ -42,7 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $attributes = [  //default value
         'gambar' => '',  //defaultnya kosong
-        
+        'role'=>'admin'
     ];
 
     /**
