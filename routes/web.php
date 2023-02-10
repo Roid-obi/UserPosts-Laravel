@@ -31,7 +31,11 @@ Route::prefix('my-profile')->middleware(['auth', 'signed'])->group(function() {
 });
 
 // untuk slas user 
-Route::prefix('user')->group(function() { 
-    Route::get('/list', [UserController::class, 'list'])->name('user.list');
-    Route::get('/', [UserController::class, 'index'])->name('user.index');
+Route::prefix('user')->group(function() {
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/list',  'list')->name('user.list');
+        Route::get('/',  'index')->name('user.index');
+        Route::delete('/delete/{user}', 'destroy')->name('destroy');
+    });
 });
+

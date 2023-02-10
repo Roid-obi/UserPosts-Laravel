@@ -15,7 +15,7 @@ class VerificationController extends Controller
             $user->email_verified_at = Carbon::now();
             $user->verification_token = null;
             $user->save();
-            return redirect('/home')->with('message', 'Email verified successfully');
+            return redirect('/')->with('message', 'Email verified successfully');
         }
         return redirect('/')->with('message', 'Invalid verification link');
     }

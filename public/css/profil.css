@@ -15,7 +15,7 @@ body{
     border-radius: 7px;
     height: 150px;
     border-bottom: solid rgb(115, 159, 255) 3px;
-
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 }
 
@@ -25,7 +25,8 @@ body{
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: -80px;
-    border: solid rgb(115, 159, 255) 3px
+    border: solid rgb(115, 159, 255) 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
    
 }
 
@@ -39,6 +40,9 @@ body{
     font-family: 'Jost', sans-serif;
     margin-top: 90px;
     margin-left: 40px;
+    margin-right: 40px;
+    color: rgb(115, 159, 255);
+text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
 }
 
 
