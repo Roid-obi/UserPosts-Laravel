@@ -113,9 +113,10 @@
 
 
                         {{-- update tombol  --}}
+                        {{-- <button class="button-56" role="button">Button 56</button> --}}
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Update') }}
                                 </button>
                             </div>

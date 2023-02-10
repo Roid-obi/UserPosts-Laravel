@@ -4,27 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
 
-class  userController extends Controller
+class UserController extends Controller
 {
-    public function alluser() {
-        $user = User::all();
-        return view('alluser',compact('user'));
+    public function list()
+    {
+        return datatables()
+            ->eloquent(User::query()->latest())
+            ->addColumn('action', function() {
+                return '
+                    <button class="btn btn-sm btn-danger mr-2">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                ';
+            })
+            ->addIndexColumn()
+            ->escapeColumns(['action'])
+            ->toJson();
+
     }
 
-    //menghapus gambar ketika di daftaruser
-    public function destory($id){
-        $item = User::findOrFail($id);
-        $path = public_path('storage/images/'.$item->gambar); 
-        if(File::exists($path)){
-            File::delete($path);
-        }
-        $item->delete($path);
-
-        return redirect('/home');
+    public function index()
+    {
+        return view('user.index');
     }
-
-    
 }
+
+
+
+
+

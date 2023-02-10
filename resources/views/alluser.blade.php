@@ -24,15 +24,15 @@
                  @foreach($user as $item)
                  <tbody>
                      <tr>
-                         <td>{{ $loop->iteration }}</td>
+                         <td>{{ $loop->iteration }}</td> {{-- melooping nomor urut --}}
                          <td>{{ $item->nama }}</td>
                          <td>{{ $item->jenis_kelamin }}</td>
                          <td>{{ $item->tanggal_lahir }}</td>
                          <td>
                              <form action="{{ route('alluser.destory',$item->id) }}" method="post">
-@csrf
-@method('DELETE')
-<button type="submit">Hapus</button>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Hapus</button>
                             </form>
                          </td>
                      </tr>

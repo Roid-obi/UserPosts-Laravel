@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\alluController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\UpdateUserController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\UserController as ControllersUserController;
 use Illuminate\Support\Facades\{Route, Auth};
 
 Auth::routes(['verify' => true]);
@@ -17,8 +19,8 @@ Route::post('/update/users/submit',[UpdateUserController::class, 'update']);
 
 
 // user
-Route::get('alluser',[userController::class, 'alluser'])->name('alluser');
-Route::delete('alluser/{id}',[userController::class, 'destory'])-> name('alluser.destory');
+Route::get('alluser',[alluController::class, 'alluser'])->name('alluser');
+Route::delete('alluser/{id}',[alluController::class, 'destory'])-> name('alluser.destory');
 
 
 
@@ -26,4 +28,10 @@ Route::delete('alluser/{id}',[userController::class, 'destory'])-> name('alluser
 Route::prefix('my-profile')->middleware(['auth', 'signed'])->group(function() {
     Route::get('/', [MyProfileController::class, 'index'])->name('my.profile.index');
     Route::put('/', [MyProfileController::class, 'update'])->name('my.profile.update');
+});
+
+// untuk slas user 
+Route::prefix('user')->group(function() { 
+    Route::get('/list', [UserController::class, 'list'])->name('user.list');
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
 });

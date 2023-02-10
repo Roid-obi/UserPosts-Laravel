@@ -1,0 +1,52 @@
+body{
+    background-color: black;
+}
+
+#profl{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    border: solid rgb(115, 159, 255) 3px;
+    height: 540px;
+    border-radius: 10px;
+}
+
+.benr{
+    background-image: url(../gambar/banr.jpg);
+    background-size: cover;
+    border-radius: 7px;
+    height: 150px;
+    border-bottom: solid rgb(115, 159, 255) 3px;
+
+
+}
+
+
+.benr img{
+    
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: -80px;
+    border: solid rgb(115, 159, 255) 3px
+   
+}
+
+.text-left{
+    margin: 20px
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap');
+.datep{
+    font-family: 'Jost', sans-serif;
+    margin-top: 90px;
+    margin-left: 40px;
+}
+
+
+.boxki{
+    float: left;
+   
+}
+.boxka{
+    float: right;
+    
+}
