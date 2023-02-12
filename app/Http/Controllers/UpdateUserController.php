@@ -26,7 +26,7 @@ class UpdateUserController extends Controller
             'alamat' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
-            'gambar' => 'required'
+            'gambar' => 'nullable|image'
         ]);
         $data = 
         [

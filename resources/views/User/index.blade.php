@@ -14,8 +14,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Profil</th>
                                 <th>Nama</th>
-                                <th>Jenis Kelamin</th>
+                                <th>Email</th>
                                 <th>Tanggal Lahir</th>
                                 <th width="10%">Aksi</th>
                             </tr>
@@ -40,11 +41,14 @@
                 order: [],
                 columns: [
                     { data: 'DT_RowIndex', sortable: false, searchable: false },
+                    { data: 'gambar' },
                     { data: 'nama' },
-                    { data: 'jenis_kelamin' },
+                    { data: 'email'},
                     { data: 'tanggal_lahir' },
-                    { data: 'action', sortable: false },
-                ],
+                    { data: 'action', sortable: false }
+                    
+                ]
+                
             });
         });
     </script>

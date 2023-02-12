@@ -6,12 +6,13 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\UpdateUserController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\UserController as ControllersUserController;
+use App\Http\Controllers\welcome;
 use Illuminate\Support\Facades\{Route, Auth};
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', HomeController::class)->name('home');
-Route::get('/', HomeController::class)->name('welcome');
+Route::get('/', welcome::class)->name('welcome');
 Route::get('verify/{token}', 'VerificationController@verify')->name('verify')->middleware('verified');
 
 Route::get('/update/users/{id}',[UpdateUserController::class, 'edit'])->name('edit');
@@ -31,11 +32,13 @@ Route::prefix('my-profile')->middleware(['auth', 'signed'])->group(function() {
 });
 
 // untuk slas user 
-Route::prefix('user')->group(function() {
+Route::prefix('user')->middleware('roleCek')->group(function() {
     Route::controller(UserController::class)->group(function () {
         Route::get('/list',  'list')->name('user.list');
         Route::get('/',  'index')->name('user.index');
         Route::delete('/delete/{user}', 'destroy')->name('destroy');
     });
 });
+
+
 

@@ -7,7 +7,11 @@
     <div id="profl">
         <div class="text-left">
             <div class="benr">
-                <img  src="{{ asset('/storage/public/images/'.Auth::user()->gambar ) }}" class="img-circle " style="width: 200px">
+                @if (Auth::user()->gambar)
+                    <img src="{{ asset('storage/public/images/'. Auth::user()->gambar) }}" class="img-circle elevation-2" alt="User Image">
+                @else
+                    <img  src="{{ asset('gambar/guruguru-hololive.gif') }}" class="img-circle " alt="User Image">
+                @endif
             </div>
 
             <div class="datep">
@@ -16,7 +20,7 @@
                 <h3>Email : {{ Auth::user()->email }}</h3>
                 <h3>Alamat : {{ Auth::user()->alamat }}</h3>
                 <h3>Tanggal Lahir : {{ Auth::user()->tanggal_lahir }}</h3>
-                <h3>Jenis Kelamin : {{ Auth::user()->jenis_kelamin }}</h3>
+                <h3>Jenis Kelamin : {{ Auth::user()->jenis_kelamin  }}</h3>
                 <h3>Role : {{ Auth::user()->role }}</h3>
             </div>
             <div class="boxka">

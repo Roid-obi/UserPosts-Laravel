@@ -1,4 +1,5 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <div class="container">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -46,4 +47,5 @@
         </li>
         @endguest
     </ul>
+</div>
 </nav>

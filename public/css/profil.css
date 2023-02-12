@@ -1,12 +1,19 @@
+
+
 body{
     background-color: black;
+}
+
+.content-header{
+    background-color: rgba(137, 43, 226, 0.671);
 }
 
 #profl{
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     border: solid rgb(115, 159, 255) 3px;
-    height: 540px;
+    height: 570px;
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.741);
 }
 
 .benr{
@@ -20,8 +27,15 @@ body{
 }
 
 
+
+/* sidebar */
+.main-sidebar a{
+    text-decoration: none;
+}
+
+
 .benr img{
-    
+    width: 200px;
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: -80px;
@@ -38,7 +52,7 @@ body{
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap');
 .datep{
     font-family: 'Jost', sans-serif;
-    margin-top: 90px;
+    margin-top: 100px;
     margin-left: 40px;
     margin-right: 40px;
     color: rgb(115, 159, 255);
@@ -54,3 +68,4 @@ text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
     float: right;
     
 }
+

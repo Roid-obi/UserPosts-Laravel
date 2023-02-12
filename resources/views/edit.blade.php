@@ -63,10 +63,10 @@
 
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                    <option value="" disabled hidden selected>Pilih Jenis</option>
-                                    <option value="Pria">Pria tulen</option>
-                                    <option value="Wanita">Wanita</option>
-                                    <option value="Rahasia">Rahasia</option>
+                                    <option value="Session::get('jenis_kelamin')" disabled hidden selected>Pilih Jenis Kelamin</option>
+                                    <option value="Man">Pria</option>
+                                    <option value="Woman">Wanita</option>
+                                    <option value="Other">Rahasia</option>
                                 </select>
 
                                 @error('jenis_kelamin')
@@ -84,8 +84,8 @@
                             <div class="col-md-6">
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
                                     <option value="" disabled hidden selected>Pilih Role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user"disabled>User</option>
+                                    <option value="superadmin">superadmin</option>
+                                    <option value="admin">admin</option>
                                 </select>
 
                                 @error('role')
