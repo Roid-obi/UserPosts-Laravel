@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\alluController;
+use App\Http\Controllers\DetailUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\UpdateUserController;
@@ -37,8 +38,12 @@ Route::prefix('user')->middleware('roleCek')->group(function() {
         Route::get('/list',  'list')->name('user.list');
         Route::get('/',  'index')->name('user.index');
         Route::delete('/delete/{user}', 'destroy')->name('destroy');
+        
     });
 });
+
+
+Route::get('/show/{id}', [DetailUserController::class, 'show'] )-> name('show');
 
 
 

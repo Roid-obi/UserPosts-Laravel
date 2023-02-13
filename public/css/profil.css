@@ -5,7 +5,8 @@ body{
 }
 
 .content-header{
-    background-color: rgba(137, 43, 226, 0.671);
+    /* background-color: rgba(137, 43, 226, 0.671); */
+    height: 100%;
 }
 
 #profl{
@@ -13,7 +14,7 @@ body{
     border: solid rgb(115, 159, 255) 3px;
     height: 570px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.741);
+    background-color: black;
 }
 
 .benr{

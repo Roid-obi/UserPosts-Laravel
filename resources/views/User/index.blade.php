@@ -17,8 +17,9 @@
                                 <th>Profil</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Tanggal Lahir</th>
+                                <th>status</th>
                                 <th width="10%">Aksi</th>
+                                
                             </tr>
                         </thead>
                     </table>
@@ -44,8 +45,10 @@
                     { data: 'gambar' },
                     { data: 'nama' },
                     { data: 'email'},
-                    { data: 'tanggal_lahir' },
+                    { data: 'status' },
                     { data: 'action', sortable: false }
+                    
+                    
                     
                 ]
                 
