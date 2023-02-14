@@ -12,4 +12,38 @@ class DetailUserController extends Controller
         $user = User::findOrFail($id);
         return view('detail.detail',compact('user'));
     }
+
+    public function update(Request $request, User $id){
+        $request->validate([
+            'nama' => 'required|string',
+            'alamat' => 'string',
+            'tanggal_lahir' => 'date',
+            'jenis_kelamin' => 'required',
+            'gambar' => 'nullable|image'
+        ]);
+
+
+        // request image
+        $imgName ='';
+        if($request->file('gambar')){
+            $imgName = $request->file('gambar')->getClientOriginalExtension();
+            $request->file('gambar')->storeAs('public/images',$imgName);
+        }
+
+        $data =
+        [ 
+            'gambar' => $imgName,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'role' => $request->role,
+            // 'status' => $request->status,
+            
+        ];
+        $find = User::findOrFail($id->id);
+        $find->update($data);
+
+       return redirect('/user');
+    }
 }

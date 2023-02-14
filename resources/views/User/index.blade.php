@@ -42,8 +42,8 @@
                 order: [],
                 columns: [
                     { data: 'DT_RowIndex', sortable: false, searchable: false },
-                    { data: 'gambar' },
-                    { data: 'nama' },
+                    { data: 'gambar', sortable: false  },
+                    { data: 'nama'},
                     { data: 'email'},
                     { data: 'status' },
                     { data: 'action', sortable: false }

@@ -42,8 +42,8 @@ Route::prefix('user')->middleware('roleCek')->group(function() {
     });
 });
 
-
-Route::get('/show/{id}', [DetailUserController::class, 'show'] )-> name('show');
+Route::get('/show/{id}',[DetailUserController::class, 'show'])->name('show.show');
+Route::put('/show/{id}',[DetailUserController::class, 'update'])->name('show.update');
 
 
 
