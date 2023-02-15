@@ -53,7 +53,7 @@
                 
                 {{-- dropdown--}}
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {{ Route::is('tag') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ (Request::is('tag')||Request::is('tag*')) ? 'active' : '' }}">
                       <i class="nav-icon fas fa-tachometer-alt"></i>
                       <p>
                         Tag
@@ -62,13 +62,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="{{ route('tag.index') }}" class="nav-link ">
+                        <a href="{{ route('tag.index') }}" class="nav-link {{ (Request::is('tag')) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>List</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="{{ route('tag.create') }}"class="nav-link">
+                        <a href="{{ route('tag.create') }}"class="nav-link {{ (Request::is('tag/create')) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Create</p>
                         </a>
