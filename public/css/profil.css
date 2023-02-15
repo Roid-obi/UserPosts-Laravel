@@ -10,11 +10,11 @@ body{
 }
 
 #profl{
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     border: solid rgb(115, 159, 255) 3px;
     height: 570px;
     border-radius: 10px;
     background-color: black;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
 }
 
 .benr{
@@ -70,3 +70,31 @@ text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
     
 }
 
+
+
+/* btn klola user */
+.butn-hapus{
+    margin-left: 30%;
+    float: left;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+}
+.butn-hapus:hover{
+    color:red;
+}
+
+.butn-info{
+    float: left;
+    margin-left: 10%;
+    /* border: solid 1px blue; */
+    padding: 4px;
+    border-radius: 20px;
+    height: 20;
+    height: 30px;
+    margin-top: -4px;
+    color: black;
+
+
+    
+}

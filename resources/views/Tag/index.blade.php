@@ -14,10 +14,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Profil</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>status</th>
                                 <th width="15%" style="text-align: center;">Aksi</th>
                                 
                             </tr>
@@ -38,18 +35,12 @@
             $('table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('user.list') }}",
+                ajax: "{{ route('tag.list') }}",
                 order: [],
                 columns: [
                     { data: 'DT_RowIndex', sortable: false, searchable: false },
-                    { data: 'gambar', sortable: false  },
                     { data: 'nama'},
-                    { data: 'email'},
-                    { data: 'status' },
-                    { data: 'action', sortable: false }
-                    
-                    
-                    
+                    { data: 'action', sortable: false }    
                 ]
                 
             });

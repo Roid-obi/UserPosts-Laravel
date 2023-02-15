@@ -104,16 +104,16 @@
                                         name="jenis_kelamin"
                                     >
                                         <option
-                                            {{ ($user->jenis_kelamin === "man") ? 'selected' : '' }}
-                                            value="man"
+                                            {{ ($user->jenis_kelamin === "Pria") ? 'selected' : '' }}
+                                            value="Pria"
                                         >Pria</option>
                                         <option
-                                            {{ ($user->jenis_kelamin === "woman") ? 'selected' : '' }}
-                                            value="woman"
+                                            {{ ($user->jenis_kelamin === "Wanita") ? 'selected' : '' }}
+                                            value="Wanita"
                                         >Wanita</option>
                                         <option
-                                            {{ ($user->jenis_kelamin === 'secret' || $user->jenis_kelamin === null) ? 'selected' : '' }}
-                                            value="secret"
+                                            {{ ($user->jenis_kelamin === 'Privasi' || $user->jenis_kelamin === null) ? 'selected' : '' }}
+                                            value="Privasi"
                                         >Rahasia</option>
                                     </select>
 

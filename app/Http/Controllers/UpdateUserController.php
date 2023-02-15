@@ -33,7 +33,7 @@ class UpdateUserController extends Controller
             'nama' => $req->nama,
             'alamat' => $req->alamat,
             'tanggal_lahir' => $req->tanggal_lahir,
-            'jenis kelamin' => $req->jenis_kelamin,
+            'jenis_kelamin' => $req->jenis_kelamin,
         ];
         if ($req->hasFile('gambar')) {
             $gambar = $req->file('gambar');

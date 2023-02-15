@@ -50,13 +50,16 @@ class UserController extends Controller
                     <form action="'.route('destroy', $user->id) .'" method="POST">
                         <input type="hidden" name="_token" value="'. @csrf_token() .'">
                         <input type="hidden" name="_method" value="DELETE">
-                        <button onclick="return confirm(`apakah anda yakin ingin menghapus?`)" class="btn btn-sm btn-danger mr-2 mt-2" >
+                        <button onclick="return confirm(`apakah anda yakin ingin menghapus?`)" class="butn-hapus" >
                         <i class="fa fa-trash"></i>
                         </button>
                     </form>
 
-                    <a href="'. route('show.show', $user->id).'" class=" btn btn-sm btn-info mx-2m mt-1" >
-                    <i class="fa fa-eye"></i>
+                    <a href="'. route('show', $user->id).'" class="butn-info" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>
                     </a>
                     ';
                 })

@@ -16,7 +16,7 @@
                             <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="name">
+                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="nama">
 
                                 @error('nama')
                                     <span class="invalid-feedback" role="alert">
@@ -64,9 +64,9 @@
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                     <option value="Session::get('jenis_kelamin')" disabled hidden selected>Pilih Jenis Kelamin</option>
-                                    <option value="Man">Pria</option>
-                                    <option value="Woman">Wanita</option>
-                                    <option value="Other">Rahasia</option>
+                                    <option value="Pria">Pria</option>
+                                    <option value="Wanita">Wanita</option>
+                                    <option value="Privasi">Privasi</option>
                                 </select>
 
                                 @error('jenis_kelamin')
