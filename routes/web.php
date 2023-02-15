@@ -51,7 +51,7 @@ Route::put('/show/{id}',[DetailUserController::class, 'update'])->name('show.upd
 
 
 // halaman tag
-Route::prefix('tag')->middleware(['auth', 'verified',])->group(function() {
+Route::prefix('tag')->group(function() {
     Route::controller(TagController::class)->group(function () {
         Route::get('/',  'index')->name('tag.index');
         Route::get('/tag',  'list')->name('tag.list');
