@@ -7,6 +7,7 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\UpdateUserController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoController;
 use App\Http\Controllers\UserController as ControllersUserController;
 use App\Http\Controllers\welcome;
 use Illuminate\Support\Facades\{Route, Auth};
@@ -69,3 +70,17 @@ Route::prefix('tag')->group(function() {
 //         Route::get('/create',  'create')->name('tag.create');
 //         Route::put('/create',  'store')->name('tag.store');
 // });
+
+
+// halaman category
+Route::prefix('category')->group(function() {
+    Route::controller(CategoController::class)->group(function () {
+        Route::get('/',  'index')->name('catego.index');
+        Route::get('/catego',  'list')->name('catego.list');
+        Route::get('/create', 'create')->name('catego.create'); //mengarah ke halaman tag create
+        Route::put('/', 'store')->name('catego.input'); //input tag
+        Route::get('/{category}', 'edit')->name('catego.edit'); 
+        Route::put('/{category}', 'update')->name('catego.update');
+        Route::delete('/{category}', 'destroy')->name('catego.destroy');
+    });
+});

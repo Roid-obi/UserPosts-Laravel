@@ -24,7 +24,7 @@
                                         type="text"
                                         class="form-control @error('nama') is-invalid @enderror"
                                         name="nama"
-                                        value="{{ $tag->nama }}"
+                                        value="{{ $category->nama }}"
                                     >
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">

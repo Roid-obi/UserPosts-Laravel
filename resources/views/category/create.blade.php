@@ -8,14 +8,14 @@
 
 
                 <div class="card">
-                    <div class="card-header">{{ __('Update Profile') }}</div>
+                    <div class="card-header">{{ __('Create Profile') }}</div>
                     <div class="card-body">
 
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('catego.input') }}" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             
-                            {{-- Nama --}}
+                            {{-- Name --}}
                             <div class="row mb-3">
                                 <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
                                 <div class="col-md-6">
@@ -24,7 +24,7 @@
                                         type="text"
                                         class="form-control @error('nama') is-invalid @enderror"
                                         name="nama"
-                                        value="{{ $tag->nama }}"
+                                        value="{{ old('nama') }}"
                                     >
                                     @error('nama')
                                         <span class="invalid-feedback" role="alert">
@@ -33,12 +33,13 @@
                                     @enderror
                                 </div>
                             </div>
+                            <input type="hidden" name="created_by" value="{{ Auth::user()->nama }}">
 
                             {{-- Save --}}
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-dark">
-                                        {{ __('Update') }}
+                                        {{ __('Create') }}
                                     </button>
                                 </div>
                             </div>

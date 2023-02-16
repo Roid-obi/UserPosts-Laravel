@@ -51,9 +51,10 @@
                     </a>
                 </li>
                 
-                {{-- dropdown--}}
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {{ (Request::is('tag')||Request::is('tag*')) ? 'active' : '' }}">
+                {{-- tag --}}
+                <li class="nav-item {{ (Request::is('tag*')) ? 'menu-open' : '' }}">
+                    
+                    <a href="#" class="nav-link {{ (Route::is('tag.index') || Route::is('tag.create') || Route::is('tag.edit')) ? 'active' : '' }}">
                       <i class="nav-icon fas fa-tachometer-alt"></i>
                       <p>
                         Tag
@@ -69,6 +70,33 @@
                       </li>
                       <li class="nav-item">
                         <a href="{{ route('tag.create') }}"class="nav-link {{ (Request::is('tag/create')) ? 'active' : '' }}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Create</p>
+                        </a>
+                      </li>
+                    </ul>
+
+
+
+                    {{-- category --}}
+                <li class="nav-item {{ (Request::is('category*')) ? 'menu-open' : '' }}">
+                    
+                    <a href="#" class="nav-link {{ (Route::is('catego.index') || Route::is('catego.create') || Route::is('catego.edit')) ? 'active' : '' }}">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                        Category
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{ route('catego.index') }}" class="nav-link {{ (Request::is('category')) ? 'active' : '' }}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>List</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{{ route('catego.create') }}"class="nav-link {{ (Request::is('category/create')) ? 'active' : '' }}">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Create</p>
                         </a>

@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'tags';
+    protected $table = 'categories';
 
     protected $fillable = ['nama','created_by'];
-
-
-    // protected $attributes =[
-    //     'created_by' => 'anim'
-    // ];
 
 
     protected $hidden = [
@@ -40,5 +35,4 @@ class Tag extends Model
     {
         return $this->hasMany(User::class, 'created_by');
     }
-
 }

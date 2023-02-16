@@ -33,6 +33,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            <input type="hidden" name="created_by" value="{{ Auth::user()->nama }}">
 
                             {{-- Save --}}
                             <div class="row mb-0">
