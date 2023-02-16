@@ -20,7 +20,7 @@ class CategoController extends Controller
             ->addColumn('action', function ($categoty) {
                 return '
                     
-                        <form onsubmit="destroy(\'event\')" action="' . route('tag.destroy', $categoty->id) . '" method="POST">
+                        <form onsubmit="destroy(\'event\')" action="' . route('catego.destroy', $categoty->id) . '" method="POST">
                         <input type="hidden" name="_token" value="'. @csrf_token() .'" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="DELETE">
                         <button onclick="return confirm(`apakah anda yakin ingin menghapus tag ini?`)" class="butn-hapus" >
