@@ -48,10 +48,10 @@ class UserController extends Controller
 
             ->addColumn('action', function ($user) {
                     return '
-                    <form action="'.route('destroy', $user->id) .'" method="POST">
+                    <form onsubmit="destroy(event)" action="'.route('destroy', $user->id) .'" method="POST">
                         <input type="hidden" name="_token" value="'. @csrf_token() .'">
                         <input type="hidden" name="_method" value="DELETE">
-                        <button onclick="return confirm(`apakah anda yakin ingin menghapus?`)" class="butn-hapus" >
+                        <button class="butn-hapus" >
                         <i class="fa fa-trash"></i>
                         </button>
                     </form>
