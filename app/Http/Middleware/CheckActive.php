@@ -16,10 +16,11 @@ class CheckActive
      */
     public function handle(Request $request, Closure $next)
     {
-        // if(auth()-> check() && auth()->user()->status == 0) {
-        //     auth()->logout();
-        //     return redirect()->route('login')->with('warning','akun anda tidak aktif');
-        // }
+        if(auth()-> check() && auth()->user()->status == 0) {
+            auth()->logout();
+            return redirect()->route('login')->with('warning', 'akun anda tidak aktif');
+        }
+
         return $next($request);
     }
 }

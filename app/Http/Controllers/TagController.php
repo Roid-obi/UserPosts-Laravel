@@ -19,7 +19,7 @@ class TagController extends Controller
             ->eloquent(Tag::query()->latest())
             ->addColumn('action', function ($tag) {
                 return '
-                    
+
                         <form onsubmit="destroy(\'event\')" action="' . route('tag.destroy', $tag->id) . '" method="POST">
                         <input type="hidden" name="_token" value="'. @csrf_token() .'" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="DELETE">
@@ -35,7 +35,7 @@ class TagController extends Controller
       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
     </svg>
                         </a>
-                    
+
                 ';
             })
             ->addIndexColumn()
@@ -49,7 +49,7 @@ class TagController extends Controller
         return view('tag.create');
     }
 
-// input tag 
+// input tag
     public function store(Request $request)
     {
         // Validate Request //
@@ -69,13 +69,13 @@ class TagController extends Controller
 
 
     // edit tag
-    public function edit($id) 
+    public function edit($id)
     {
         $tag = Tag::find($id);
         return view('tag.update', compact('tag'));
     }
 
-    
+
     public function update(Request $request, Tag $tag)
     {
         // Validate Request //
@@ -95,7 +95,7 @@ class TagController extends Controller
         return redirect('/tag')->with('success', 'Tag Updated Successfully!');
     }
 
-    
+
     // hapus tag
     public function destroy(Tag $tag)
     {

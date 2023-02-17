@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -64,15 +65,15 @@ class UserController extends Controller
                     ';
                 })
 
-                ->addColumn('status', function(){
-                    return true == 'Active'
-                    ? '<p class="text-success fw-bold">active</p>' : '<p class="text-danger fw-bold">inactive</p>';
+                ->addColumn('status', function($user){
+                    return $user->status == true
+                    ? '<p class="badge badge-success fw-bold">active</p>' : '<p class="badge badge-danger fw-bold">inactive</p>';
                 })
 
 
             ->addColumn ('gambar', function($user){
                 if($user->gambar){
-                    return'<img  src= "'.asset('/storage/public/images/'. $user->gambar ).'"  class="img-circle" style="width: 50px" >';
+                    return'<img  src= "'. Storage::disk('public')->url('images/' . $user->gambar) .'"  class="img-circle" style="width: 50px" >';
                 }else{
                     return'<img id="images-default" src="'. asset('gambar/npc.jpg').'" class="img-circle" style="width: 50px">';
                 }
@@ -110,8 +111,3 @@ public function destroy(User $user)
 
 
 }
-
-
-
-
-

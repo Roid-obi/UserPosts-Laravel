@@ -34,7 +34,19 @@ class UserFactory extends Factory
     public function unverified()
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,    
+            'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate that the model's role should be superadmin.
+     *
+     * @return static
+     */
+    public function superadmin()
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'superadmin',
         ]);
     }
 }

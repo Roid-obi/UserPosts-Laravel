@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 
 class DetailUserController extends Controller
 {
-    public function show($id) 
+    public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('detail.detail',compact('user'));
+        return view('detail.detail', compact('user'));
     }
 
-    public function update(Request $request, User $id){
+    public function update(Request $request, User $id)
+    {
         $request->validate([
             'nama' => 'required|string',
             'alamat' => 'string',
@@ -22,28 +23,28 @@ class DetailUserController extends Controller
             'gambar' => 'nullable|image'
         ]);
 
+        $data =
+            [
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'role' => $request->role,
+            ];
 
         // request image
-        $imgName ='';
-        if($request->file('gambar')){
-            $imgName = $request->file('gambar')->getClientOriginalExtension();
-            $request->file('gambar')->storeAs('public/images',$imgName);
+        $imgName = '';
+        if ($request->file('gambar')) {
+            $imgName = $request->file('gambar')->getClientOriginalName();
+            $request->file('gambar')->storeAs('public/images', $imgName);
+            $data = array_merge($data, [
+                'gambar' => $imgName,
+            ]);
         }
 
-        $data =
-        [ 
-            'gambar' => $imgName,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'role' => $request->role,
-            // 'status' => $request->status,
-            
-        ];
         $find = User::findOrFail($id->id);
         $find->update($data);
 
-       return redirect('/user');
+        return redirect('/user');
     }
 }
