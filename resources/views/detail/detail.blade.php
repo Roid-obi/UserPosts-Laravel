@@ -152,7 +152,45 @@
                                     @enderror
                                 </div>
                             </div>
+                            
+                            {{-- Status--}}
+                            <div class="row mb-3">
+                                <label
+                                    for="status"
+                                    class="col-md-4 col-form-label text-md-end"
+                                >{{ __('Status') }}</label>
+
+                                <div class="col-md-6">
+                                    <select
+                                        class="form-control @error('status') is-invalid @enderror"
+                                        aria-label="Default select example"
+                                        name="status"
+                                    >
+                                        <option
+                                            {{ ($user->status === "active") ? 'selected' : '' }}
+                                            value="active"
+                                        >active</option>
+                                        <option
+                                            {{ ($user->status === "blocked") ? 'selected' : '' }}
+                                            value="blocked"
+                                        >blocked</option>
+                                    </select>
+
+                                    @error('jenis_kelamin')
+                                        <span
+                                            class="invalid-feedback"
+                                            role="alert"
+                                        >
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             {{-- images --}}
+                            <div class="mt-3">
+                                <img class="outimgd" width="200" src="" id="output"> {{-- output --}}
+                            </div>
                             <div class="row mb-3">
                                 <label
                                     for="gambar"
@@ -168,6 +206,7 @@
                                                 type="file"
                                                 accept="image/*"
                                                 id="formFile"
+                                                onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"
                                             >
                                             <small
                                                 for="formFile"

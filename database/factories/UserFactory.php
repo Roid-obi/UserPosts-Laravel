@@ -37,4 +37,17 @@ class UserFactory extends Factory
             'email_verified_at' => null,    
         ]);
     }
+
+
+    /**
+     * superadmin
+     *
+     * @return static
+     */
+    public function superadmin()
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'superadmin',    
+        ]);
+    }
 }

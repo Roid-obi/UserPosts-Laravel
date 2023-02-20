@@ -44,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $attributes = [  //default value
         'gambar' => '',  //defaultnya kosong
         'role'=>'admin',
-        'status'=>'1'
+        'status'=>'active'
     ];
 
     /**

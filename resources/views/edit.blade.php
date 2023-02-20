@@ -97,11 +97,14 @@
                         </div> --}}
 
                         {{-- gambar --}}
+                        <div class="mt-3">
+                            <img class="outimg" width="200" src="" id="output"> {{-- output --}}
+                        </div>
                         <div class="row mb-3">
                             <label for="gambar" class="col-md-4 col-form-label text-md-end">{{ __('gambar') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gambar" type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" autocomplete="gambar">
+                                <input id="gambar" type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" autocomplete="gambar" accept="gambar/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
 
                                 @error('gambar')
                                     <span class="invalid-feedback" role="alert">

@@ -50,13 +50,18 @@
                         </p>
                     </a>
                 </li>
+                @endif
+                
                 
                 {{-- tag --}}
                 <li class="nav-item {{ (Request::is('tag*')) ? 'menu-open' : '' }}">
                     
                     <a href="#" class="nav-link {{ (Route::is('tag.index') || Route::is('tag.create') || Route::is('tag.edit')) ? 'active' : '' }}">
-                      <i class="nav-icon fas fa-tachometer-alt"></i>
-                      <p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+                        <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+                        <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+                      </svg>
+                      <p style="margin-left: 10px;">
                         Tag
                         <i class="right fas fa-angle-left"></i>
                       </p>
@@ -82,8 +87,11 @@
                 <li class="nav-item {{ (Request::is('category*')) ? 'menu-open' : '' }}">
                     
                     <a href="#" class="nav-link {{ (Route::is('catego.index') || Route::is('catego.create') || Route::is('catego.edit')) ? 'active' : '' }}">
-                      <i class="nav-icon fas fa-tachometer-alt"></i>
-                      <p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
+                        <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"/>
+                        <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"/>
+                      </svg>
+                      <p style="margin-left: 10px;">
                         Category
                         <i class="right fas fa-angle-left"></i>
                       </p>
@@ -104,7 +112,33 @@
                     </ul>
                  
 
-
+                    {{-- Post --}}
+                    <li class="nav-item {{ (Request::is('post*')) ? 'menu-open' : '' }}">
+                    
+                      <a href="#" class="nav-link {{ (Route::is('post.index') || Route::is('post.create') || Route::is('post.edit')) ? 'active' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-file-post" viewBox="0 0 16 16">
+                          <path d="M4 3.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-8z"/>
+                          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                        </svg>
+                        <p style="margin-left: 10px;">
+                          Post
+                          <i class="right fas fa-angle-left"></i>
+                        </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                          <a href="{{ route('post.index') }}" class="nav-link {{ (Request::is('post')) ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>List</p>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="{{ route('post.create') }}"class="nav-link {{ (Request::is('post/create')) ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Create</p>
+                          </a>
+                        </li>
+                      </ul>
 
 
                 {{-- <li class="nav-item">
@@ -127,7 +161,6 @@
                         </p>
                     </a>
                 </li> --}}
-                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

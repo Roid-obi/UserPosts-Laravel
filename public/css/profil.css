@@ -94,7 +94,19 @@ text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
     height: 30px;
     margin-top: -4px;
     color: black;
-
-
     
+}
+
+.outimg{
+    margin-left: 270px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+.outimgd{
+    margin-left: 400px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 }

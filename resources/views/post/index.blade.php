@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Title</th>
                                 <th>Created By</th>
                                 <th width="15%" style="text-align: center;">Aksi</th>
                                 
@@ -36,6 +36,7 @@
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+
         let userDatatable;
 
         $(document).ready(function () {
@@ -44,11 +45,11 @@
                 autoWidth: false,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('catego.list') }}",
+                ajax: "{{ route('post.list') }}",
                 order: [],
                 columns: [
                     { data: 'DT_RowIndex', sortable: false, searchable: false },
-                    { data: 'nama'},
+                    { data: 'title'},
                     { data: 'created_by'},
                     { data: 'action', sortable: false }    
                 ]

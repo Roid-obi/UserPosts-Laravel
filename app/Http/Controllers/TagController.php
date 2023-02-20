@@ -20,14 +20,13 @@ class TagController extends Controller
             ->addColumn('action', function ($tag) {
                 return '
                     
-                        <form onsubmit="destroy(\'event\')" action="' . route('tag.destroy', $tag->id) . '" method="POST">
-                        <input type="hidden" name="_token" value="'. @csrf_token() .'" enctype="multipart/form-data">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button onclick="return confirm(`apakah anda yakin ingin menghapus tag ini?`)" class="butn-hapus" >
-                                <i class="fa fa-trash"></i>
-                            </button>
-                            </td>
-                        </form>
+                <form onsubmit="destroy(event)" action="'.route('tag.destroy', $tag->id) .'" method="POST">
+                <input type="hidden" name="_token" value="'. @csrf_token() .'">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="butn-hapus" >
+                <i class="fa fa-trash"></i>
+                </button>
+            </form>
 
                         <a href="'. route('tag.edit', $tag->id).'" class="butn-info" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -56,12 +55,15 @@ class TagController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
+                'description' => 'required|string',
             ]
         );
 
         $data = [
             'created_by' => auth()->user()->nama,
-            'nama' => $request->nama
+            'nama' => $request->nama,
+            'description' => $request->description
+
         ];
         Tag::create($data);
         return redirect('/tag')->with('success', 'Tag Created Successfully!');
@@ -82,11 +84,14 @@ class TagController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
+                'description' => 'required|string',
             ]
         );
 
         $data = [
             'nama' => $request->nama,
+            'created_by' => $request->created_by,
+            'description' => $request->description
         ];
 
         $findTag = Tag::find($tag->id);

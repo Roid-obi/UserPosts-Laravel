@@ -28,14 +28,25 @@
         </div>
     </div>
 </div>
+
+
+@include('includes.modal-delete') {{-- memanggil modal --}}
+
+
 @endsection
 
 @push('scripts')
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+        let userDatatable;
+
+
+
         $(document).ready(function () {
-            $('table').DataTable({
+            userDatatable = $('table').DataTable({
+                sDom: '<"text-right mb-md"T><"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>pr',
+                autoWidth: false,
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('user.list') }}",
@@ -55,4 +66,9 @@
             });
         });
     </script>
+
+<script src="{{ asset('js/user/delete.js') }}"></script>
+
 @endpush
+
+

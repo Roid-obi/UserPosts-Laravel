@@ -8,7 +8,7 @@
 
 
                 <div class="card">
-                    <div class="card-header">{{ __('Update Profile') }}</div>
+                    <div class="card-header">{{ __('Update Category') }}</div>
                     <div class="card-body">
 
                         <form action="" method="POST" enctype="multipart/form-data">
@@ -27,6 +27,25 @@
                                         value="{{ $category->nama }}"
                                     >
                                     @error('nama')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            {{-- description --}}
+                            <div class="row mb-3">
+                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Deskripsi') }}</label>
+                                <div class="col-md-6">
+                                    <textarea
+                                        id="description"
+                                        type="text"
+                                        class="form-control @error('description') is-invalid @enderror"
+                                        name="description"
+                                        value="{{ old('description') }}"
+                                    ></textarea>
+                                    @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

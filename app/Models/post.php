@@ -5,18 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class post extends Model
 {
     use HasFactory;
 
-    protected $table = 'categories';
+    protected $table = 'posts';
 
-    protected $fillable = ['nama','created_by','description'];
+    protected $fillable = ['title','created_by','image','content'];
 
 
     protected $hidden = [
         'created_at',
         'updated_at'
+    ];
+
+    protected $attributes = [
+        'content' => '',
+        'image' => '',
     ];
 
 

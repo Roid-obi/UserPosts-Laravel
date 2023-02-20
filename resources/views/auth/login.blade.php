@@ -4,9 +4,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            {{-- peringatan status User --}}
+            @if (session()->has('warning'))
+                <div class="alert alert-danger mb-2">
+                    {{ session()->get('warning') }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

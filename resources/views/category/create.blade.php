@@ -8,14 +8,14 @@
 
 
                 <div class="card">
-                    <div class="card-header">{{ __('Create Profile') }}</div>
+                    <div class="card-header">{{ __('Create Category') }}</div>
                     <div class="card-body">
 
                         <form action="{{ route('catego.input') }}" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             
-                            {{-- Name --}}
+                            {{-- Nama --}}
                             <div class="row mb-3">
                                 <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
                                 <div class="col-md-6">
@@ -33,6 +33,27 @@
                                     @enderror
                                 </div>
                             </div>
+                            
+
+                            {{-- description --}}
+                            <div class="row mb-3">
+                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Deskripsi') }}</label>
+                                <div class="col-md-6">
+                                    <textarea
+                                        id="description"
+                                        type="text"
+                                        class="form-control @error('description') is-invalid @enderror"
+                                        name="description"
+                                        value="{{ old('nama') }}"
+                                    ></textarea>
+                                    @error('description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <input type="hidden" name="created_by" value="{{ Auth::user()->nama }}">
 
                             {{-- Save --}}
