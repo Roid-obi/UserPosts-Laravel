@@ -45,8 +45,8 @@
                                         type="text"
                                         class="form-control @error('description') is-invalid @enderror"
                                         name="description"
-                                        value="{{ old('nama') }}"
-                                    ></textarea>
+                                        
+                                    >{{ $tag->description }}</textarea>
                                     @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -54,6 +54,9 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            <input type="hidden" name="created_by" value="{{ Auth::user()->nama }}">
+
 
                             {{-- Save --}}
                             <div class="row mb-0">

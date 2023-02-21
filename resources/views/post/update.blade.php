@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.min.css') }}">
+@endpush
+
 @section('content')
 
     <div class="container">
@@ -24,7 +28,7 @@
                                         type="text"
                                         class="form-control @error('title') is-invalid @enderror"
                                         name="title"
-                                        value="{{ $post->nama }}"
+                                        value="{{ $post->title }}"
                                     >
                                     @error('title')
                                         <span class="invalid-feedback" role="alert">
@@ -36,7 +40,7 @@
 
                             {{-- image --}}
                             <div class="mt-3">
-                                <img class="outimgd" width="200" src="" id="output"> {{-- output --}}
+                                <img src="{{ asset('/storage/public/images/'.$post->image) }}" class="outimgd" width="200" src="" id="output"> {{-- output --}}
                             </div>
                             <div class="row mb-3">
                                 <label
@@ -49,11 +53,12 @@
                                             <input
                                                 name="image"
                                                 class="form-control @error('image') is-invalid @enderror"
-                                                value="{{ old('image') }}"
+                                                value="{{ $post->image }}"
                                                 type="file"
                                                 accept="image/*"
                                                 id="formFile"
                                                 onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"
+                                                onchange="loadFile(event)"
                                             >
                                             <small
                                                 for="formFile"
@@ -82,8 +87,8 @@
                                         {{-- type="text" --}}
                                         class="form-control @error('content') is-invalid @enderror"
                                         name="content"
-                                        value="{{ old('content') }}"
-                                    ></textarea>
+                                        
+                                    >{{ $post->content }}</textarea>
 
                                     @error('content')
                                         <span class="invalid-feedback" role="alert">
@@ -117,3 +122,17 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script src="{{ asset('vendor/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+    
+    $(document).ready(function() {
+        $('#content').summernote();
+    })
+    function loadFile(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+@endpush

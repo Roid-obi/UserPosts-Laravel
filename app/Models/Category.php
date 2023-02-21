@@ -19,6 +19,10 @@ class Category extends Model
         'updated_at'
     ];
 
+    protected $attributes = [
+        'description' => ''
+    ];
+
 
     public function scopeFilter($query, array $filters)
     {

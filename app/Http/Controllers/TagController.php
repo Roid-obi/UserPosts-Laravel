@@ -55,7 +55,7 @@ class TagController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
-                'description' => 'required|string',
+                'description' => 'nullable|string',
             ]
         );
 
@@ -84,7 +84,8 @@ class TagController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
-                'description' => 'required|string',
+                'description' => 'string|nullable',
+
             ]
         );
 

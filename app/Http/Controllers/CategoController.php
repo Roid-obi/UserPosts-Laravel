@@ -55,7 +55,8 @@ class CategoController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
-                'description' => 'required|string',
+                'description' => 'nullable|string',
+
 
             ]
         );
@@ -85,7 +86,8 @@ class CategoController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string',
-                'description' => 'required|string',
+                'description' => 'nullable|string',
+
 
             ]
         );
