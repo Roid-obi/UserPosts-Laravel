@@ -13,8 +13,16 @@ class TagController extends Controller
     }
 
 
-    public function list()
+    public function list(Request $request)
     {
+
+        
+        $category = Tag::query()
+            ->when(!$request->order, function ($query) {
+                $query->latest();
+            });
+
+
         return datatables()
             ->eloquent(Tag::query()->latest())
             ->addColumn('action', function ($tag) {

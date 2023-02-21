@@ -127,7 +127,7 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="{{ route('post.index') }}" class="nav-link {{ (Request::is('post')) ? 'active' : '' }}">
+                          <a href="{{ route('post.index') }}" class="nav-link {{ (Route::is('post.edit') ||Request::is('post')) ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>List</p>
                           </a>

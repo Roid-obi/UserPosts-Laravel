@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,8 +16,15 @@ class PostController extends Controller
     }
 
 
-    public function list()
+    public function list(Request $request)
     {
+
+        
+        $category = post::query()
+            ->when(!$request->order, function ($query) {
+                $query->latest();
+            });
+
         return datatables()
             ->eloquent(post::query()->latest())
             ->addColumn('action', function ($post) {
@@ -46,7 +55,9 @@ class PostController extends Controller
 //halaman create
     public function create()
     {
-        return view('post.create');
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('post.create',compact(['tags','categories']));
     }
 
 // input post 
