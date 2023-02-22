@@ -11,7 +11,15 @@ class post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = ['title','created_by','image','content'];
+    protected $fillable = [
+        'title',
+        'created_by',
+        'image',
+        'content',
+        'tags',
+        'categories',
+        'slug'
+    ];
 
 
     protected $hidden = [
@@ -23,6 +31,18 @@ class post extends Model
         'content' => '',
         'image' => '',
     ];
+
+
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'post_tag');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'post_category');
+    }
 
 
     public function scopeFilter($query, array $filters)

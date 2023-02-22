@@ -11,7 +11,11 @@ class Category extends Model
 
     protected $table = 'categories';
 
-    protected $fillable = ['nama','created_by','description'];
+    protected $fillable = [
+        'nama',
+        'created_by',
+        'description'
+    ];
 
 
     protected $hidden = [

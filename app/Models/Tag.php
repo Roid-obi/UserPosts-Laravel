@@ -11,7 +11,11 @@ class Tag extends Model
 
     protected $table = 'tags';
 
-    protected $fillable = ['nama','created_by','description'];
+    protected $fillable = [
+        'nama',
+        'created_by',
+        'description'
+    ];
 
 
     // protected $attributes =[

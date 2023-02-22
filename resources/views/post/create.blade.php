@@ -39,6 +39,64 @@
                             </div>
 
 
+                            {{-- Category --}}
+                        <div class="row mb-3 ">
+                            <label for="categories" class="col-md-2 col-form-label text-center">{{ __('Category') }}</label>
+
+                            <div class="col-md-10">
+                                @foreach ($categories as $category)
+                                    <input class="px-2" type="checkbox" name="categories[]" id="categories-{{ $category->id }}" value="{{ $category->id }}">
+                                    <label for="categories-{{ $category->id }}">{{ $category->nama }}</label>
+                                @endforeach
+
+                                @error('categories')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                             {{-- tag --}}
+                        <div class="row mb-3">
+                            <label for="tags" class="col-md-2 col-form-label text-center">{{ __('Tag') }}</label>
+
+                            <div class="col-md-10">
+                                @foreach ($tags as $tag)
+                                    <input type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}">
+                                    <label for="tags_{{ $tag->id }}">{{ $tag->nama }}</label>
+                                @endforeach
+
+                                @error('tags')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        
+
+                            
+                            {{-- <div class="row mb-3">
+                                <label for="tags"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Tag') }}</label>
+                                <div class="col-md-6 mt-2">
+                                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                        @foreach ($tags as $tag)
+                                            <input type="checkbox" name="tags[]" class="btn-check"
+                                                id="tags_{{ $tag->id }}" autocomplete="off"
+                                                value="{{ old('tag', $tag->id) }}">
+                                            <label class="btn btn-sm btn-outline-success"
+                                                for="tags_{{ $tag->id }}">{{ $tag->nama }}</label>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div> --}}
+                           
+
+
                             {{-- image --}}
                             <div class="mt-3">
                                 <img class="outimgd" width="200" src="" id="output"> {{-- output --}}

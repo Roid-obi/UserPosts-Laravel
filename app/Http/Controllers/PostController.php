@@ -7,6 +7,8 @@ use App\Models\post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -55,9 +57,10 @@ class PostController extends Controller
 //halaman create
     public function create()
     {
-        $tags = Tag::all();
-        $categories = Category::all();
-        return view('post.create',compact(['tags','categories']));
+        return view('post.create',[
+            'categories' => Category::all(),
+            'tags' => Tag::all(),
+        ]);
     }
 
 // input post 
@@ -75,7 +78,8 @@ class PostController extends Controller
         $data = [
             'created_by' => auth()->user()->nama,
             'title' => $request->title,
-            'content' => $request->content
+            'content' => $request->content,
+            'slug' => Str::slug($request->title) //slug berisi title
         ];
 
         if ($request->hasFile('image')) {
@@ -85,7 +89,9 @@ class PostController extends Controller
             $data['image'] = $fileName;
         }
 
-        post::create($data);
+        $post = post::create($data);
+        $post->tags()->sync($request->input('tags' ,[]));
+        $post->categories()->sync($request->input('categories' ,[]));
         return redirect('/post')->with('success', 'post Created Successfully!');
     }
 
@@ -93,8 +99,11 @@ class PostController extends Controller
     // edit post
     public function edit($id) 
     {
-        $post = post::find($id);
-        return view('post.update', compact('post'));
+        return view('post.update', [
+            'post' => post::find($id),
+            'tags' => Tag::all(),
+            'categories' => Category::all(),
+        ]);
     }
 
 
@@ -115,7 +124,8 @@ class PostController extends Controller
         $data = [
             'title' => $request->title,
             'created_by' => auth()->user()->nama,
-            'content' => $request->content
+            'content' => $request->content,
+            'slug' => Str::slug($request->title) //slug berisi title
         ];
 
         if ($request->hasFile('image')) {
@@ -130,6 +140,9 @@ class PostController extends Controller
 
       
         $find->update($data);
+
+        $post->tags()->sync($request->input('tags', []));
+        $post->categories()->sync($request->input('categories', []));
 
         return redirect('/post')->with('success', 'Post Updated Successfully!');
     }

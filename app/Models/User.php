@@ -64,4 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
     //     return $this->verification_token;
     // }
     
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
 }

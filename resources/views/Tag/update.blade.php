@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.min.css') }}">
+@endpush
+
 @section('content')
 
     <div class="container">
@@ -78,3 +82,13 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script src="{{ asset('vendor/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+    
+    $(document).ready(function() {
+        $('#content').summernote();
+    })
+</script>
+@endpush

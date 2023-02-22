@@ -42,6 +42,7 @@
             userDatatable = $('table').DataTable({
                 sDom: '<"text-right mb-md"T><"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>pr',
                 autoWidth: false,
+                
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('catego.list') }}",
