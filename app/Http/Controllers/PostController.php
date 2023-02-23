@@ -106,8 +106,6 @@ class PostController extends Controller
         ]);
     }
 
-
-
     // validasi edit
     public function update(Request $request, post $post)
     {
@@ -148,7 +146,7 @@ class PostController extends Controller
     }
 
     
-    // hapus tag
+    // hapus gam
     public function destroy(post $post)
     {
         $post->delete();

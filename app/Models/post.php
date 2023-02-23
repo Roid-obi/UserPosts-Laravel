@@ -34,13 +34,11 @@ class post extends Model
 
 
 
-    public function tags()
-    {
+    public function tags(){
         return $this->belongsToMany(Tag::class, 'post_tag');
     }
 
-    public function categories()
-    {
+    public function categories(){
         return $this->belongsToMany(Category::class, 'post_category');
     }
 
