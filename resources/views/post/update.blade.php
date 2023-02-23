@@ -39,10 +39,10 @@
                             </div>
 
                             {{-- Category --}}
-                        <div class="row mb-3">
-                            <label for="categories" class="col-md-2 col-form-label text-center">{{ __('Category') }}</label>
+                        <div class="catag row mb-3">
+                            <label for="categories" class="col-md-2 col-form-label text-right">{{ __('Category') }}</label>
 
-                            <div class="col-md-10">
+                            <div class="catagch col-md-10">
                                 @foreach ($categories as $category)
                                     <input class="px-2" type="checkbox" name="categories[]" id="categories_{{ $category->id }}" value="{{ $category->id }}" {{ in_array($category->id, $post->categories->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $category->nama}}
                                 @endforeach
@@ -56,10 +56,10 @@
                         </div>
 
                             {{-- Tag --}}
-                        <div class="row mb-3">
-                            <label for="tags" class="col-md-2 col-form-label text-center">{{ __('Tag') }}</label>
+                        <div class="catag row mb-3">
+                            <label for="tags" class="col-md-2 col-form-label text-right">{{ __('Tag') }}</label>
 
-                            <div class="col-md-10">
+                            <div class="catagch col-md-10">
                                 @foreach ($tags as $tag)
                                     <input type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $tag->nama }}
                                 @endforeach
