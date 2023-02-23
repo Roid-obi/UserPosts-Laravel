@@ -45,7 +45,7 @@
 
                             <div class="catagch col-md-10">
                                 @foreach ($categories as $category)
-                                    <input class="px-2" type="checkbox" name="categories[]" id="categories-{{ $category->id }}" value="{{ $category->id }}">
+                                    <input style="margin-left: 20px" class="px-2" type="checkbox" name="categories[]" id="categories-{{ $category->id }}" value="{{ $category->id }}">
                                     <label for="categories-{{ $category->id }}">{{ $category->nama }}</label>
                                 @endforeach
 
@@ -64,7 +64,7 @@
 
                             <div class="catagch col-md-10">
                                 @foreach ($tags as $tag)
-                                    <input type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}">
+                                    <input style="margin-left: 20px" type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}">
                                     <label for="tags_{{ $tag->id }}">{{ $tag->nama }}</label>
                                 @endforeach
 

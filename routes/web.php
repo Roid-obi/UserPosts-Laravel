@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\{Route, Auth};
 Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'active.user'])->group(function () {
+    
+    Route::get('/', welcome::class)->name('welcome');
 
     Route::get('/home', HomeController::class)->name('home');
-    Route::get('/', welcome::class)->name('welcome');
     Route::get('verify/{token}', 'VerificationController@verify')->name('verify')->middleware('verified');
 
     Route::get('/update/users/{id}',[UpdateUserController::class, 'edit'])->name('edit');

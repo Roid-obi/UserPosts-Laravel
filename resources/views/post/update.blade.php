@@ -44,7 +44,7 @@
 
                             <div class="catagch col-md-10">
                                 @foreach ($categories as $category)
-                                    <input class="px-2" type="checkbox" name="categories[]" id="categories_{{ $category->id }}" value="{{ $category->id }}" {{ in_array($category->id, $post->categories->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $category->nama}}
+                                    <input style="margin-left: 20px"  class="px-2" type="checkbox" name="categories[]" id="categories_{{ $category->id }}" value="{{ $category->id }}" {{ in_array($category->id, $post->categories->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $category->nama}}
                                 @endforeach
 
                                 @error('categories')
@@ -61,7 +61,7 @@
 
                             <div class="catagch col-md-10">
                                 @foreach ($tags as $tag)
-                                    <input type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $tag->nama }}
+                                    <input style="margin-left: 20px"  type="checkbox" name="tags[]" id="tags_{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'checked' : '' }}> {{ $tag->nama }}
                                 @endforeach
 
                                 @error('tags')
