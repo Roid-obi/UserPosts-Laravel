@@ -87,17 +87,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        {{-- <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul> --}}
 
         @if (Route::has('login'))
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
@@ -142,7 +131,7 @@
         {{-- hanya post yang memiliki is_panned=true yang diloop --}}
         @foreach ($posts->where('is_pinned', true) as $index => $post) 
         <div class="carousel-item @if ($loop->first) active @endif">
-          {{-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> --}}
+          
           <img  width="100%" src="{{ asset('/storage/public/images/'.$post->image) }}" alt="">
           <div class="container">
             <div class="carousel-caption text-start">
