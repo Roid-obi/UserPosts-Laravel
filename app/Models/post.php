@@ -18,7 +18,8 @@ class post extends Model
         'content',
         'tags',
         'categories',
-        'slug'
+        'slug',
+        'is_pinned'
     ];
 
 
@@ -30,6 +31,8 @@ class post extends Model
     protected $attributes = [
         'content' => '',
         'image' => '',
+        'is_pinned'=>''
+
     ];
 
 

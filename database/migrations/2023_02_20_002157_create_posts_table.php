@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('content');
             $table->string('created_by');
             $table->string('image');
+            $table->boolean('is_pinned');
             $table->timestamps();
         });
     }

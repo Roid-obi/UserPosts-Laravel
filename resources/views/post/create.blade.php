@@ -136,6 +136,26 @@
                             </div>
 
 
+                            {{-- <div class="row mb-3">
+                                <label for="is_pinned" class="col-md-4 col-form-label text-md-end">{{ __('sematkan') }}</label>
+    
+                                <div class="col-md-6">
+                                    <select id="is_pinned" name="is_pinned" class="form-control @error('is_pinned') is-invalid @enderror">
+                                        <option value="" disabled hidden selected>PiLih</option>
+                                        <option value="1">Iya</option>
+                                        <option value="0">Tidak</option>
+                                    </select>
+    
+                                    @error('is_pinned')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div> --}}
+                                
+
+
                             {{-- konten --}}
                             <div class="row mb-3">
                                 <label for="content" class="col-md-4 col-form-label text-md-end">{{ __('content') }}</label>

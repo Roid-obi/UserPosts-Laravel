@@ -71,7 +71,8 @@ class PostController extends Controller
             [
                 'title' => 'required|string',
                 'image' => 'required',
-                'content' => 'required'   
+                'content' => 'required',
+                
             ]
         );
 
@@ -79,7 +80,8 @@ class PostController extends Controller
             'created_by' => auth()->user()->nama,
             'title' => $request->title,
             'content' => $request->content,
-            'slug' => Str::slug($request->title) //slug berisi title
+            'slug' => Str::slug($request->title), //slug berisi title
+            'is_pinned' => 0
         ];
 
         if ($request->hasFile('image')) {
@@ -116,6 +118,8 @@ class PostController extends Controller
                 'title' => 'required|string',
                 'image' => 'nullable',
                 'content' => 'required|string',
+                
+
             ]
         );
 
@@ -123,7 +127,9 @@ class PostController extends Controller
             'title' => $request->title,
             'created_by' => auth()->user()->nama,
             'content' => $request->content,
-            'slug' => Str::slug($request->title) //slug berisi title
+            'slug' => Str::slug($request->title), //slug berisi title
+            'is_pinned' => $request->is_pinned
+
         ];
 
         if ($request->hasFile('image')) {

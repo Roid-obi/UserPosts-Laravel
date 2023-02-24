@@ -114,6 +114,31 @@
                             </div>
 
 
+                            {{-- is_pinned --}}
+                            <div class="row mb-3">
+                                <label for="is_pinned"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Pin') }}</label>
+
+                                <div class="col-md-6">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="is_pinned" id="is_pinned1"
+                                            value="1" {{ $post->is_pinned == 1 ? 'checked' : '' }} autocomplete="off">
+                                        <label class="btn btn-outline-success me-2" for="is_pinned1">Pinned</label>
+
+                                        <input type="radio" class="btn-check" name="is_pinned" id="is_pinned2"
+                                            value="0" {{ $post->is_pinned == 0 ? 'checked' : '' }} autocomplete="off">
+                                        <label class="btn btn-outline-warning" for="is_pinned2">No Pin</label>
+
+                                    </div>
+
+                                    @error('is_pinned')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             {{-- konten --}}
                             <div class="row mb-3">
                                 <label for="content" class="col-md-4 col-form-label text-md-end">{{ __('content') }}</label>
