@@ -145,8 +145,8 @@ class PostController extends Controller
       
         $find->update($data);
 
-        $post->tags()->sync($request->input('tags', []));
-        $post->categories()->sync($request->input('categories', []));
+        $find->tags()->sync($request->input('tags', []));
+        $find->categories()->sync($request->input('categories', []));
 
         return redirect('/post')->with('success', 'Post Updated Successfully!');
     }

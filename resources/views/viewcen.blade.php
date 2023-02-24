@@ -122,10 +122,9 @@
   <div class="ban-slideshow">
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        
+        @foreach ($posts->where('is_pinned', true) as $index => $post)
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
+    @endforeach
       </div>
       <div class="carousel-inner">
         {{-- hanya post yang memiliki is_panned=true yang diloop --}}
@@ -230,7 +229,7 @@
             <div class="col">
               <div class="card">
                 {{-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> --}}
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ asset('/storage/public/images/'.$post->image) }}" alt="" style="border-radius: 0px">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ asset('/storage/public/images/'.$post->image) }}" alt="" style="border-radius: 0px; object-fit: cover;">
 
                 <div class="card-body">
                   <p class="card-text">{{ $post->title }}</p>
@@ -268,7 +267,7 @@
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="waifu/zeta_kya.jpg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
 
       </div>
     </div>
