@@ -22,7 +22,7 @@ class CategoController extends Controller
             });
 
         return datatables()
-            ->eloquent(Category::query()->latest())
+            ->eloquent($category)
             ->addColumn('action', function ($category) {
                 return '
                     

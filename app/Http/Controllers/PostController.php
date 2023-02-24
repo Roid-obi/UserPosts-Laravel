@@ -28,7 +28,7 @@ class PostController extends Controller
             });
 
         return datatables()
-            ->eloquent(post::query()->latest())
+            ->eloquent($category)
             ->addColumn('action', function ($post) {
                 return '
                     
@@ -160,4 +160,5 @@ class PostController extends Controller
 
         return redirect('/post')->with('success', 'post has been Deleted!');
     }
+    
 }

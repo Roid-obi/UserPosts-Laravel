@@ -24,7 +24,7 @@ class TagController extends Controller
 
 
         return datatables()
-            ->eloquent(Tag::query()->latest())
+            ->eloquent($category)
             ->addColumn('action', function ($tag) {
                 return '
                     
