@@ -92,7 +92,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             @auth
             <li class="nav-item">
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="text-decoration: none; color:white;">Home</a>
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Home</a>
             </li>
             @else
             <li class="nav-item">
@@ -182,8 +182,8 @@
       <div class="col-lg-4">
         {{-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="waifu/zeta_kya.jpg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> --}}
 
-        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="waifu/zeta_kya.jpg" alt="" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-        <h2 class="fw-normal">VestiaZeta</h2>
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="waifu/yukino2.jpg" alt="" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+        <h2 class="fw-normal">Yukino</h2>
         <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
@@ -229,14 +229,18 @@
             <div class="col">
               <div class="card">
                 {{-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> --}}
+              <div class="imagecard overflow-hidden">
                 <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ asset('/storage/public/images/'.$post->image) }}" alt="" style="border-radius: 0px; object-fit: cover;">
-
+              </div>
                 <div class="card-body">
                   <p class="card-text">{{ $post->title }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <a href="/posts/{{ $post->slug }}">
+                      <button   type="button"  class="btn btn-sm btn-outline-secondary">View</button>
+                    </a>
+
+                      {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> --}}
                     </div>
                     <small class="text-muted">{{ $post->updated_at }}</small>
                   </div>

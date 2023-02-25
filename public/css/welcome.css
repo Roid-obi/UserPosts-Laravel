@@ -1,17 +1,56 @@
+header nav ul li a{
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+}
+
+header nav ul li a{
+    transition: all 0.4s ease-in 0s;
+}
+
+header nav ul li a:hover{
+    color: rgb(192, 192, 192);
+    
+}
+
 .bangam1{
     size: cover;
 }
 
 #navbarwel{
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .ban-slideshow{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 
 .card{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     border-radius: 0px;
+    
+}
+.card{
+  transition: all 0.3s ease-in 0s;
+}
+
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.535) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.card img {
+    width: 100%;
+  border-radius: 5px;
+  
+}
+.card img {
+  transition: transform 0.5s ease;
+  
+    
+}
+
+.card img:hover{
+    transform: scale(1.05);
+  border-radius: 0px;
 }

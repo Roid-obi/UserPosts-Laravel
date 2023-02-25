@@ -8,6 +8,7 @@ use App\Http\Controllers\UpdateUserController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoController;
+use App\Http\Controllers\DetailViewController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController as ControllersUserController;
 use App\Http\Controllers\welcome;
@@ -17,8 +18,14 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'active.user'])->group(function () {
     
-    Route::get('/', welcome::class)->name('welcome');
+// 
+    Route::controller(welcome::class)->group(function () {
+        Route::get('/','index')->name('welcome.index');
+        Route::get('/posts/{slug}','show')->name('post.detail');
+    });
+    // Route::get('/detailviewpost', DetailViewController::class);
 
+    
     Route::get('/home', HomeController::class)->name('home');
     Route::get('verify/{token}', 'VerificationController@verify')->name('verify')->middleware('verified');
 
