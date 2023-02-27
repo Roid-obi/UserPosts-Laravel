@@ -1,17 +1,21 @@
-@extends('auth.app')
+@extends('layouts.app',['title' => 'Show'])
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" autocomplete="off">
-                        @csrf
-
-                        {{-- Name --}}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">{{ __('Create User') }}</div>
+                    <div class="card-body">
+                        <form
+                            action="{{ route('input.user') }}"
+                            method="POST"
+                            enctype="multipart/form-data"
+                        >
+                            @method('put')
+                            @csrf
+                            {{-- Name --}}
                         <div class="row mb-3">
                             <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
 
@@ -42,27 +46,7 @@
                         </div>
 
                         
-                        
-                        {{-- Role --}}
-                        <input type="hidden" name="role" value="member">
 
-                        {{-- <div class="row mb-3">
-                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
-                                    <option value="" disabled hidden selected>Pilih Role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user" disabled>User</option>
-                                </select>
-
-                                @error('role')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
 
 
 
@@ -72,7 +56,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Sandi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -87,21 +71,30 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Konfirmasi Sandi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="password">
                             </div>
                         </div>
+                            
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            {{-- role --}}
+                            <input type="hidden" name="role" value="admin">
+
+                            {{-- Save --}}
+                            <div class="row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-dark"
+                                    >
+                                        {{ __('Create') }}
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection

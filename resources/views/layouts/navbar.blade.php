@@ -29,6 +29,12 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                {{-- home aplikasi --}}
+                <a class="dropdown-item" href="/" >
+                    {{ __('Home Aps') }}
+                </a>
+
                 {{-- update prof --}}
                 <a class="dropdown-item" href="/update/users/{{ Auth::user()->id }}">
                     {{ __('Update Profile') }}
@@ -39,6 +45,8 @@
                                      document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
+
+                
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf

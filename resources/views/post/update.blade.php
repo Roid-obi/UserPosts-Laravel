@@ -15,7 +15,7 @@
                     <div class="card-header">{{ __('Update post') }}</div>
                     <div class="card-body">
 
-                        <form action="{{ route('post.update',$post->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             

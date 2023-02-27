@@ -39,22 +39,57 @@
                         </p>
                     </a>
                 </li>
-                @if (Auth::User()->role == 'superadmin')
+
+                {{-- user --}}
+                {{-- @if (Auth::User()->role == 'superadmin')
                 <li class="nav-item">
                     <a href="{{ route('user.index') }}" class="nav-link {{ (Request::is('user')||Request::is('show*')) ? 'active' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
                           </svg>
                         <p style="margin-left: 10px;">
-                            User Login
+                            User
                         </p>
                     </a>
                 </li>
+                @endif --}}
+
+
+                {{-- user ls --}}
+                @if (Auth::User()->role == 'superadmin')
+
+                <li class="nav-item {{ (Request::is('user*')) ? 'menu-open' : '' }}">
+                    
+                  <a href="#" class="nav-link {{ (Route::is('user.index') || Route::is('user.create')) ? 'active' : '' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+                      <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+                      <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+                    </svg>
+                    <p style="margin-left: 10px;">
+                      User
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ route('user.index') }}" class="nav-link {{ (Request::is('user')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>List User</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('create.user') }}"class="nav-link {{ (Request::is('tag/create')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Create User</p>
+                      </a>
+                    </li>
+                  </ul>
                 @endif
+
                 
                 
                 {{-- tag --}}
-                <li class="nav-item {{ (Request::is('tag*')) ? 'menu-open' : '' }}">
+                  <li class="nav-item {{ (Request::is('tag*')) ? 'menu-open' : '' }}">
                     
                     <a href="#" class="nav-link {{ (Route::is('tag.index') || Route::is('tag.create') || Route::is('tag.edit')) ? 'active' : '' }}">
                       <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -112,7 +113,37 @@ public function destroy(User $user)
 //update user
 
 
+// hal user
+public function create()
+    {
+        return view('user.create-admin');
+    }
 
+
+// input user
+public function store(Request $request)
+{
+    // Validate Request //
+    $request->validate(
+        [
+            'nama' => ['required', 'string', 'max:255','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role' => ['required','string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]
+    );
+
+    $data = [
+        
+        'nama' => $request->nama,
+        'email' => $request->email,
+        'password' => Hash::make($request['password']),
+        'role' => $request->role
+
+    ];
+    User::create($data);
+    return redirect('/user')->with('success', 'user Created Successfully!');
+}
 
 }
 

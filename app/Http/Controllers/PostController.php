@@ -108,7 +108,7 @@ class PostController extends Controller
         ]);
     }
 
-    // validasi edit
+    // edit
     public function update(Request $request, post $post)
     {
         // Validate Request //
@@ -132,6 +132,7 @@ class PostController extends Controller
 
         ];
 
+        // image
         if ($request->hasFile('image')) {
             $post = $request->file('image');
             $imgName = $post->getClientOriginalName();

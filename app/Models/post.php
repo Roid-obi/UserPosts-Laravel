@@ -31,15 +31,12 @@ class post extends Model
     protected $attributes = [
         'content' => '',
         'image' => '',
-        'is_pinned'=>''
+        'is_pinned'=> 0
 
     ];
 
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+
 
 
     public function tags(){
