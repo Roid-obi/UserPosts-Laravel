@@ -43,4 +43,9 @@ class Category extends Model
     {
         return $this->hasMany(User::class, 'created_by');
     }
+
+    // relasi category
+    public function categories() {
+        return $this->belongsToMany(Post::class,'post_category');
+    }
 }

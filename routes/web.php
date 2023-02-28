@@ -22,6 +22,9 @@ Route::middleware(['auth', 'active.user'])->group(function () {
     Route::controller(welcome::class)->group(function () {
         Route::get('/','index')->name('welcome.index');
         Route::get('/posts/{slug}','show')->name('post.detail');
+        Route::post('/', 'StoreComment')->name("comment");
+        Route::get('/post/category/{category}','showCategory')->name('post.category');
+        Route::get('/post/tag/{tag}','showTag')->name('post.tag');
     });
     // Route::get('/detailviewpost', DetailViewController::class);
 

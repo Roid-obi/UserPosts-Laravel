@@ -9,10 +9,9 @@ class comment extends Model
 {
     use HasFactory;
 
-    protected $table = 'comment';
+    protected $table = 'comments';
 
     protected $fillable = [
-        'id',
         'user_id',
         'post_id',
         'content'
@@ -23,6 +22,16 @@ class comment extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post()
+    {
+        return $this->belongsTo(post::class);
+    }
 
     
 }

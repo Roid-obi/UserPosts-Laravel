@@ -10,19 +10,23 @@ body{
 }
 
 #profl{
-    border: solid rgb(115, 159, 255) 3px;
-    height: 570px;
-    border-radius: 10px;
-    background-color: black;
+    /* border: solid rgb(115, 159, 255) 3px; */
+    height: 580px;
+    /* border-radius: 10px; */
+    background-color: rgba(240, 223, 251, 0.788);
     box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+#profl h3{
+    margin-top: 12px;
 }
 
 .benr{
     background-image: url(../gambar/banr.jpg);
     background-size: cover;
-    border-radius: 7px;
+    /* border-radius: 7px; */
     height: 150px;
-    border-bottom: solid rgb(115, 159, 255) 3px;
+    
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 }
@@ -40,19 +44,18 @@ body{
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: -80px;
-    border: solid rgb(115, 159, 255) 3px;
+    border: solid rgb(115, 159, 255) 2px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
    
 }
 
-.text-left{
-    margin: 20px
-}
 
 
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100&family=Mynerve&display=swap');
 .datep{
     font-family: 'Jost', sans-serif;
+    font-family: 'Mynerve', cursive;
     margin-top: 100px;
     margin-left: 40px;
     margin-right: 40px;

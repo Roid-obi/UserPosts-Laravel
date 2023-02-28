@@ -5,7 +5,7 @@
     
         @if (Auth::user())
     <div id="profl">
-        <div class="text-left">
+        
             <div class="benr">
                 @if (Auth::user()->gambar)
                     <img src="{{ asset('storage/public/images/'. Auth::user()->gambar) }}" class="img-circle elevation-2" alt="User Image">
@@ -24,13 +24,13 @@
                 <h3>Role : {{ Auth::user()->role }}</h3>
             </div>
             <div class="boxka">
-                <h3>Created At : {{ Auth::user()->created_at->diffForHumans() }}</h3>
-                <h3>Updated At : {{ Auth::user()->updated_at->diffForHumans() }}</h3>
+                <h4>Created At : {{ Auth::user()->created_at->diffForHumans() }}</h4>
+                <h4>Updated At : {{ Auth::user()->updated_at->diffForHumans() }}</h4>
                 {{-- <img src="{{ asset( Auth::user()->gambar ) }}" alt="" width="500" srcset="">  --}}
             </div>
             </div>
 
-        </div>
+        
     </div>
         @else
             <h2>Hello, Please <a href="/login">Login</a> or <a href="/register">Register</a></h2>

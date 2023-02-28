@@ -95,7 +95,7 @@
               <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Home</a>
             </li>
             <li class="nav-item">
-                <a style="color: bisque" href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Control</a>
+                <a style="color: bisque". href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Control</a>
             </li>
             
             @else
@@ -218,7 +218,7 @@
 
   <section class="py-5 text-center container">
     
-        <h1 class="fw-light">{{ $title }}</h1>
+        {{-- <h1 class="fw-light">{{ $title }}</h1> --}}
         
       
   </section>
@@ -237,11 +237,29 @@
                 <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ asset('/storage/public/images/'.$post->image) }}" alt="" style="border-radius: 0px; object-fit: cover;">
               </div>
                 <div class="card-body">
+
+
                   <p class="card-text">{{ $post->title }}</p>
+
+                                                @foreach($post->categories as $category)
+                                                    <div class="btn btn-outline-secondary btn-sm">
+                                                        <a href="{{ route('post.category', $category->id) }}">
+                                                            {{ $category->nama }}
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                                @foreach($post->tags as $tag)
+                                                    <div class="btn btn-outline-secondary btn-sm" style="border: green solid 1px; background-color:green;">
+                                                        <a style="color:white" href="{{ route('post.tag', $tag->id) }}">
+                                                            {{ $tag->nama }}
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                            
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="/posts/{{ $post->slug }}">
-                      <button   type="button"  class="btn btn-sm btn-outline-secondary">View</button>
+                      <button   type="button"  class="btn btn-sm btn-outline-secondary mt-3">View</button>
                     </a>
 
                       {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> --}}

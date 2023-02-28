@@ -49,4 +49,8 @@ class Tag extends Model
         return $this->hasMany(User::class, 'created_by');
     }
 
+    public function tags() {
+        return $this->belongsToMany(Post::class,'post_tag');
+    }
+
 }
