@@ -22,11 +22,10 @@ Route::middleware(['auth', 'active.user'])->group(function () {
     Route::controller(welcome::class)->group(function () {
         Route::get('/','index')->name('welcome.index');
         Route::get('/posts/{slug}','show')->name('post.detail');
-        Route::post('/', 'StoreComment')->name("comment");
-        Route::get('/post/category/{category}','showCategory')->name('post.category');
-        Route::get('/post/tag/{tag}','showTag')->name('post.tag');
+        Route::post('/', 'StoreComment')->name("comment"); 
+        Route::get('/post/category/{category}','showCategory')->name('post.category'); //menampilkan kategory yang di klik 
+        Route::get('/post/tag/{tag}','showTag')->name('post.tag');  //menampilkan tag yang di klik 
     });
-    // Route::get('/detailviewpost', DetailViewController::class);
 
     
 
@@ -86,13 +85,6 @@ Route::middleware(['auth', 'active.user'])->group(function () {
                 Route::delete('/{tag}', 'destroy')->name('tag.destroy');
             });
         });
-        // Route::prefix('tag')->controller(TagController::class)->group(function() {
-            
-
-        //         Route::get('/', 'list')->name('tag.list');
-        //         Route::get('/create',  'create')->name('tag.create');
-        //         Route::put('/create',  'store')->name('tag.store');
-        // });
 
 
         // halaman category

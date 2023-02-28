@@ -41,11 +41,11 @@ class Category extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'created_by');
+        return $this->hasMany(User::class, 'created_by'); 
     }
 
     // relasi category
     public function categories() {
-        return $this->belongsToMany(Post::class,'post_category');
+        return $this->belongsToMany(Post::class,'post_category'); 
     }
 }

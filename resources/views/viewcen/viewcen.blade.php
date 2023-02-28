@@ -14,7 +14,7 @@
 
     
 
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href=" {!! asset('../assets/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -78,6 +78,8 @@
 
   </head>
   <body>
+
+    
     
 <header >
   <nav id="navbarwel" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -116,6 +118,7 @@
     </div>
   </nav>
 </header>
+
 
 
 
@@ -218,7 +221,7 @@
 
   <section class="py-5 text-center container">
     
-        {{-- <h1 class="fw-light">{{ $title }}</h1> --}}
+        <h1 class="fw-light">{{ $title }}</h1>
         
       
   </section>
@@ -338,6 +341,9 @@
     <p>&copy; 2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 </main>
+
+
+
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

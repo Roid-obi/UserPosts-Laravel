@@ -24,8 +24,8 @@ class welcome extends Controller
 // halaman detail
     public function show($slug)
     {
-        $post = post::where('slug', $slug)->with('tags', 'categories')->firstOrFail();
-        $comments = Comment::where('post_id', $post->id)->with('user')->get(); //comment untuk post agar di kelompokkan
+        $post = post::where('slug', $slug)->with('tags', 'categories')->firstOrFail(); //agar urlnya slug
+        $comments = Comment::where('post_id', $post->id)->with('user')->get(); //comment untuk postnya dipost tersebut
         return view('viewcen.detail-viewcen', [
             'post' => $post,
             'comments' => $comments,

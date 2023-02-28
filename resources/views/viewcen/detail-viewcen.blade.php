@@ -36,7 +36,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">  
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                     <textarea class="form-control" name="content" id="message" placeholder="Your message" required=""></textarea>
                                     <button style="margin-top: 20px;" type="submit" class="btn btn-normal pull-right">Submit</button>
@@ -68,6 +68,8 @@
             </div>
         </div>
     </section>
+    
+    
 
 
 

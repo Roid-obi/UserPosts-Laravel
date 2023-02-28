@@ -25,12 +25,12 @@ class comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); //satu komentar dimiliki satu user
     }
 
     public function post()
     {
-        return $this->belongsTo(post::class);
+        return $this->belongsTo(post::class); //satu komentar untuk satu post
     }
 
     
