@@ -130,9 +130,10 @@
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         @foreach ($posts->where('is_pinned', true) as $index => $post)
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
-    @endforeach
-      </div>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-label="Slide {{ $index + 1 }}"></button>
+        @endforeach
+    </div>
+    
       <div class="carousel-inner">
         {{-- hanya post yang memiliki is_panned=true yang diloop --}}
         @foreach ($posts->where('is_pinned', true) as $index => $post) 
@@ -196,7 +197,7 @@
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         {{-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> --}}
-        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="waifu/seseren-arknights.gif" alt="" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ asset('waifu/seseren-arknights.gif') }}" alt="" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
 
         <h2 class="fw-normal">Skadi</h2>
         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
@@ -245,25 +246,28 @@
                   <p class="card-text">{{ $post->title }}</p>
 
                                                 @foreach($post->categories as $category)
-                                                    <div class="btn btn-outline-secondary btn-sm">
+                                                    <div class="namacatego btn-outline-secondary btn-sm">
                                                         <a href="{{ route('post.category', $category->id) }}">
                                                             {{ $category->nama }}
                                                         </a>
                                                     </div>
                                                 @endforeach
                                                 @foreach($post->tags as $tag)
-                                                    <div class="btn btn-outline-secondary btn-sm" style="border: green solid 1px; background-color:green;">
-                                                        <a style="color:white" href="{{ route('post.tag', $tag->id) }}">
-                                                            {{ $tag->nama }}
+                                                    <div class="namatag btn-outline-secondary btn-sm" >
+                                                        <a href="{{ route('post.tag', $tag->id) }}">
+                                                            #{{ $tag->nama }}
                                                         </a>
                                                     </div>
                                                 @endforeach
+
+                    <p>Views: {{ $post->views }}</p>
                             
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="/posts/{{ $post->slug }}">
                       <button   type="button"  class="btn btn-sm btn-outline-secondary mt-3">View</button>
                     </a>
+                    
 
                       {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> --}}
                     </div>

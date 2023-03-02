@@ -29,6 +29,8 @@ Route::middleware(['auth', 'active.user'])->group(function () {
 
     
 
+    
+
     Route::middleware(['member'])->group(function () {
         Route::get('/home', HomeController::class)->name('home');
         

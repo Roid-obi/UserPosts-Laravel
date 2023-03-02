@@ -19,7 +19,8 @@ class post extends Model
         'tags',
         'categories',
         'slug',
-        'is_pinned'
+        'is_pinned',
+        'views'
     ];
 
 
@@ -31,7 +32,8 @@ class post extends Model
     protected $attributes = [
         'content' => '',
         'image' => '',
-        'is_pinned'=> 0
+        'is_pinned'=> 0,
+        'views'=> 0
 
     ];
 
@@ -63,4 +65,11 @@ class post extends Model
     {
         return $this->hasMany(User::class, 'created_by');
     }
+
+    public function view()
+    {
+        return $this->hasMany(User::class, 'created_by');
+    }
+
+
 }

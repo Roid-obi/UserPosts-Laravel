@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('created_by');
             $table->string('image');
             $table->boolean('is_pinned');
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }
