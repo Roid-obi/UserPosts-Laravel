@@ -45,6 +45,35 @@ class welcome extends Controller
         return redirect()->back();
     }
 
+    // update comment
+    public function update(Request $request, comment $comment)
+    {
+        $request->validate([
+            'content' => 'required',
+        ]);
+    
+        $comment->content = $request->content;
+        $comment->save();
+    
+        return redirect()->back();
+    }
+    
+   
+
+    // delate comment
+    public function destroy($id)
+    {
+        $comment = comment::findOrFail($id);
+
+        if ($comment->user_id != auth()->id()) {
+            abort(403);
+        }
+
+        $comment->delete();
+
+        return back();
+    }
+
 
     // category di klik
     public function showCategory(Category $category) {

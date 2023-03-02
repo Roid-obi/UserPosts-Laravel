@@ -49,23 +49,56 @@
                     </form>
                     <h3 style=" font-family: Neucha, sans-serif; ">{{$comments->count()}} Comments</h3>
 
-                    @foreach ($comments as $item)
-                    <hr>
-                    <div class="media">
-                        <img style="" class="imagecoms img-responsive" src="{{ asset('storage/public/images/' . $item->user->gambar) }}"
-                        width="100" alt="">
-                        <div class="media-body" >
+                    @foreach ($comments as $comment)
+                        <hr>
 
-                            <h4 style=" font-family: Neucha, sans-serif; " class="media-heading mt-4">{{$item->user->nama}}</h4>
-                            <p>{{$item->content}}
-                            </p>
-                            <ul class="list-unstyled list-inline media-detail pull-left">
-                                <li><small><i class="fa fa-calendar"></i>{{$item->created_at}}</small></li>
-                            </ul>
+                        <div class="media">
+                            <img class="imagecoms img-responsive" src="{{ asset('storage/public/images/' . $comment->user->gambar) }}"
+                                width="100" alt="">
+                            <div class="media-body" >
+                                <h4 style=" font-family: Neucha, sans-serif; " class="media-heading mt-4">{{ $comment->user->nama }}</h4>
+                                <p>{{ $comment->content }}</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li><small><i class="fa fa-calendar"></i> {{ $comment->created_at }}</small></li>
+                                    </ul>
+                                <div class="pull-right">
+                                    {{-- hapus --}}
+                                    <form style="float: left; margin-right: 10px ;" action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+
+                                    {{-- edit --}}
+                                    <button style="" type="button" class="btn btn-primary" onclick="showUpdateForm('{{ $comment->id }}')">Edit</button>
+
+                                    <form id="update-comment-{{ $comment->id }}" action="{{ route('comments.update', $comment->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            {{-- <label for="content">Content</label> --}}
+                                            <textarea class="form-control" id="content" name="content" rows="3">{{ $comment->content }}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                          </svg></button>
+                                    </form>
+                                    {{-- <form action="{{ route('comments.update', $comment->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <label for="content">Content</label>
+                                            <textarea class="form-control" id="content" name="content" rows="3">{{ $comment->content }}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form> --}}
+                                    
+                                
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
                     @endforeach
+                
 
                 </div>
             </div>
@@ -78,3 +111,7 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>function showUpdateForm(commentId) {
+    var form = document.getElementById('update-comment-' + commentId);
+    form.style.display = 'block';
+}</script>

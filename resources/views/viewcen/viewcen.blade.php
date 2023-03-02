@@ -128,11 +128,11 @@
   {{-- slide show --}}
   <div class="ban-slideshow">
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
+      {{-- <div class="carousel-indicators">
         @foreach ($posts->where('is_pinned', true) as $index => $post)
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-label="Slide {{ $index + 1 }}"></button>
         @endforeach
-    </div>
+    </div> --}}
     
       <div class="carousel-inner">
         {{-- hanya post yang memiliki is_panned=true yang diloop --}}
