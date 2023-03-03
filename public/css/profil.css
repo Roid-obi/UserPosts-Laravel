@@ -13,8 +13,9 @@ body{
     /* border: solid rgb(115, 159, 255) 3px; */
     height: 580px;
     /* border-radius: 10px; */
-    background-color: rgba(240, 223, 251, 0.788);
-    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    
+    background-color: rgba(14, 13, 14, 0.788);
+    box-shadow: rgba(255, 228, 196, 0.4) -5px 5px, rgba(255, 228, 196, 0.3) -10px 10px, rgba(255, 228, 196, 0.2) -15px 15px, rgba(255, 228, 196, 0.1) -20px 20px, rgba(255, 228, 196, 0.05) -25px 25px;
 }
 
 #profl h3{
@@ -27,7 +28,7 @@ body{
     /* border-radius: 7px; */
     height: 150px;
     
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+   border-bottom: rgba(255, 228, 196, 0.567) 5px solid;
 
 }
 
@@ -44,7 +45,8 @@ body{
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: -80px;
-    border: solid rgb(115, 159, 255) 2px;
+    border: rgba(255, 228, 196, 0.567) 5px solid;
+
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
    
 }
@@ -56,10 +58,10 @@ body{
 .datep{
     font-family: 'Jost', sans-serif;
     font-family: 'Mynerve', cursive;
-    margin-top: 100px;
+    margin-top: 95px;
     margin-left: 40px;
     margin-right: 40px;
-    color: rgb(38, 39, 42);
+    color: rgb(199, 200, 204);
 text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
 }
 
