@@ -102,7 +102,7 @@
             
             @else
             <li class="nav-item">
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
             </li>
 
                 @if (Route::has('register'))
