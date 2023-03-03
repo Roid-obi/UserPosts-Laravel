@@ -17,6 +17,7 @@
                                 <th>Profil</th>
                                 <th>Nama</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>status</th>
                                 <th width="15%" style="text-align: center;">Aksi</th>
                                 
@@ -56,6 +57,7 @@
                     { data: 'gambar', sortable: false  },
                     { data: 'nama'},
                     { data: 'email'},
+                    { data: 'role'},
                     { data: 'status' },
                     { data: 'action', sortable: false }
                     

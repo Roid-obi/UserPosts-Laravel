@@ -102,7 +102,7 @@
             
             @else
             <li class="nav-item">
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a>
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
             </li>
 
                 @if (Route::has('register'))
@@ -124,8 +124,9 @@
 
 
 <main>
-
+@if($title != 'Categories' && $title != 'Tags')
   {{-- slide show --}}
+ 
   <div class="ban-slideshow">
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       {{-- <div class="carousel-indicators">
@@ -149,23 +150,6 @@
           </div>
         </div>
     @endforeach
-
-
-
-
-        {{-- @foreach ($posts->where('is_pinned', true) as $index => $post)
-        <div class="carousel-item @if ($loop->first) active @endif">
-            <img src="{{ asset('/storage/public/images/'.$post->image) }}" class="d-block w-100" alt="{{ $post->title }}" style="filter: brightness(50%)">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>{{ $post->title }}</h1>
-                    <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-    @endforeach --}}
-
-        
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -177,6 +161,8 @@
       </button>
     </div>
   </div>
+
+
 
 
   
@@ -212,7 +198,7 @@
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-
+    @endif
 
 
     {{-- posts --}}
@@ -289,6 +275,7 @@
 
 
 
+@if($title != 'Categories' && $title != 'Tags')
 
     <!-- START THE FEATURETTES -->
 
@@ -331,7 +318,7 @@
 
       </div>
     </div>
-
+@endif
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->

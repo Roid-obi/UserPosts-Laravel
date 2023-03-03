@@ -38,18 +38,19 @@ Route::middleware(['auth', 'active.user'])->group(function () {
 
     
 
-    Route::middleware(['member'])->group(function () {
+    
         Route::get('/home', HomeController::class)->name('home');
         
         Route::get('verify/{token}', 'VerificationController@verify')->name('verify')->middleware('verified');
 
+        
         Route::get('/update/users/{id}',[UpdateUserController::class, 'edit'])->name('edit');
         Route::post('/update/users/submit',[UpdateUserController::class, 'update']);
 
 
 
 
-
+        Route::middleware(['member'])->group(function () {
         // user
         // Route::get('alluser',[alluController::class, 'alluser'])->name('alluser');
         // Route::delete('alluser/{id}',[alluController::class, 'destory'])-> name('alluser.destory');

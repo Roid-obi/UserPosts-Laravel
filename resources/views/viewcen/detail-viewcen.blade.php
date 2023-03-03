@@ -10,6 +10,7 @@
         <img src="{{ asset('/storage/public/images/'.$post->image) }}" alt="{{ $post->slug }}" class="imgslug w-50 mt-5">
         <h4 class="mt-4">{{ $post->title }}</h4>
         <p>{!! $post->content !!}</p>
+        <p>Views: {{ $post->views }}</p>
         <a href="/">
             <button   type="button"  class="btn btn-sm btn-outline-secondary">Back</button>
           </a>
