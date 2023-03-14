@@ -47,6 +47,9 @@ class UserFactory extends Factory
     public function superadmin()
     {
         return $this->state(fn (array $attributes) => [
+            'nama' => 'Admin Roid ',
+            'email' => 'admin@gmail.com',
+            'password' => '$2y$10$1OuOlqrOpKYhKQGFW93AceY3cZIDclZ.N7jOD2HpxhF.B4SDftDQy',
             'role' => 'superadmin',    
         ]);
     }

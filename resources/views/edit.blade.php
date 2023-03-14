@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Update') }}</div>
+                <div class="card-header">{{ __('Update Profile') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="/update/users/submit" autocomplete="off" enctype="multipart/form-data"> {{-- enctype="multipart/form-data" : agar data luar bisa masuk --}}
@@ -16,7 +16,7 @@
                             <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="nama">
+                                <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama', Auth::user()->nama) }}" autocomplete="nama">
 
                                 @error('nama')
                                     <span class="invalid-feedback" role="alert">
@@ -27,12 +27,17 @@
                         </div>
 
 
+                        
+
+
+
+
                         {{-- Alamat --}}
                         <div class="row mb-3">
                             <label for="alamat" class="col-md-4 col-form-label text-md-end">{{ __('Tempat Tinggal') }}</label>
 
                             <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" autocomplete="alamat">
+                                <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat',Auth::user()->alamat) }}" autocomplete="alamat">
 
                                 @error('alamat')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +52,7 @@
                             <label for="tanggal_lahir" class="col-md-4 col-form-label text-md-end">{{ __('Tanggal Lahir') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" autocomplete="tanggal_lahir">
+                                <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir', Auth::user()->tanggal_lahir) }}" autocomplete="tanggal_lahir">
 
                                 @error('tanggal_lahir')
                                     <span class="invalid-feedback" role="alert">
@@ -64,9 +69,9 @@
                             <div class="col-md-6">
                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                     <option value="Session::get('jenis_kelamin')" disabled hidden selected>Pilih Jenis Kelamin</option>
-                                    <option value="Pria">Pria</option>
-                                    <option value="Wanita">Wanita</option>
-                                    <option value="Privasi">Privasi</option>
+                                    <option value="Pria" {{ (Auth::user()->jenis_kelamin === "Pria") ? 'selected' : '' }} >Pria</option>
+                                    <option value="Wanita" {{ (Auth::user()->jenis_kelamin === "Wanita") ? 'selected' : '' }} >Wanita</option>
+                                    <option value="Privasi" {{ (Auth::user()->jenis_kelamin === "Privasi") ? 'selected' : '' }} >Privasi</option>
                                 </select>
 
                                 @error('jenis_kelamin')

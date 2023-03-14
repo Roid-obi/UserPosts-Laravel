@@ -64,6 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
     //     return $this->verification_token;
     // }
     
+
+    // relasi
     public function tags()
     {
         return $this->hasMany(Tag::class);
@@ -72,5 +74,18 @@ class User extends Authenticatable implements MustVerifyEmail
     public function categories()
     {
         return $this->hasMany(Category::class);
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+    public function SavePost()
+    {
+        return $this->hasMany(SavePost::class);
+    }
+
+    public function Like()
+    {
+        return $this->hasMany(Like::class);
     }
 }

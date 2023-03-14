@@ -97,7 +97,7 @@
               <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Home</a>
             </li>
             <li class="nav-item">
-                <a style="color: bisque". href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Control</a>
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Control</a>
             </li>
             
             @else

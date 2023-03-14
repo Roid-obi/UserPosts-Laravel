@@ -5,11 +5,11 @@ header nav ul li a{
 }
 
 header nav ul li a{
-    transition: all 0.4s ease-in 0s;
+    transition: all 0.2s ease-in 0s;
 }
 
 header nav ul li a:hover{
-    color: rgb(192, 192, 192);
+    color: bisque;
     
 }
 
@@ -143,6 +143,27 @@ text-align: right;
 }
 
 
-/* kolom komen */
+/* share media */
+div#social-links {
+  
+  margin-left: 29.5%;
+  /* background-color: antiquewhite; */
+  max-width: 500px;
+}
 
+div#social-links ul li{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: inline-block;
+}
 
+div#social-links ul li a{
+  padding-left: -100px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin: 1px;
+  font-size: 30px;
+  color: #222;
+  background-color: #ccc;
+}

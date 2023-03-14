@@ -9,10 +9,15 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoController;
 use App\Http\Controllers\DetailViewController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SavePostController;
+use App\Http\Controllers\ShareButtonController;
 use App\Http\Controllers\UserController as ControllersUserController;
 use App\Http\Controllers\welcome;
 use Illuminate\Support\Facades\{Route, Auth};
+
+
 
 Auth::routes(['verify' => true]);
 
@@ -20,6 +25,7 @@ Auth::routes(['verify' => true]);
 Route::controller(welcome::class)->group(function () {
     Route::get('/','index')->name('welcome.index');
     Route::get('/posts/{slug}','show')->name('post.detail');
+
     Route::post('/', 'StoreComment')->name("comment"); 
     Route::delete('/comments/{id}', 'destroy')->name('comments.destroy'); //hapus comment
     Route::put('/comments/{comment}', 'update')->name('comments.update'); // edit comment
@@ -31,9 +37,19 @@ Route::controller(welcome::class)->group(function () {
 
 Route::middleware(['auth', 'active.user'])->group(function () {
     
-// 
-    
+    // save post
+    Route::controller(SavePostController::class)->group(function () {
+        Route::get('/post-saves/{post}', 'show')->name('post-saves.show');
+        Route::post('/post-saves/{post}', 'store')->name('post-saves.store');
+        Route::delete('/post-saves/{post}', 'destroy')->name('post-saves.destroy');
+    })->middleware('auth');
 
+    // Likes
+    Route::controller(LikeController::class)->group(function () {
+        // Route::get('/post-saves/{post}', 'show')->name('likes.show');
+        Route::post('/likes/{post}', 'store')->name('likes.store');
+        Route::delete('/likes/{post}', 'destroy')->name('likes.destroy');
+    })->middleware('auth');
     
 
     
@@ -50,7 +66,7 @@ Route::middleware(['auth', 'active.user'])->group(function () {
 
 
 
-        Route::middleware(['member'])->group(function () {
+    Route::middleware(['member'])->group(function () {
         // user
         // Route::get('alluser',[alluController::class, 'alluser'])->name('alluser');
         // Route::delete('alluser/{id}',[alluController::class, 'destory'])-> name('alluser.destory');
@@ -123,6 +139,12 @@ Route::middleware(['auth', 'active.user'])->group(function () {
                 Route::delete('/{post}', 'destroy')->name('post.destroy');
             });
         });
+
+
+        // like
+        Route::post('/like', [LikeController::class, 'like'])->name('like');
+        Route::delete('/unlike', [LikeController::class, 'unlike'])->name('unlike');
+        
 
     });
 

@@ -13,9 +13,11 @@ body{
     /* border: solid rgb(115, 159, 255) 3px; */
     height: 580px;
     /* border-radius: 10px; */
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     
-    background-color: rgba(14, 13, 14, 0.788);
-    box-shadow: rgba(255, 228, 196, 0.4) -5px 5px, rgba(255, 228, 196, 0.3) -10px 10px, rgba(255, 228, 196, 0.2) -15px 15px, rgba(255, 228, 196, 0.1) -20px 20px, rgba(255, 228, 196, 0.05) -25px 25px;
+    background-color: rgba(14, 13, 14, 0.862);
+    /* box-shadow: rgba(255, 228, 196, 0.802) -5px 5px, rgba(0, 0, 0, 0.459) -10px 10px, rgba(255, 228, 196, 0.2) -15px 15px, rgba(255, 228, 196, 0.1) -20px 20px, rgba(255, 228, 196, 0.05) -25px 25px; */
 }
 
 #profl h3{
@@ -45,9 +47,9 @@ body{
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: -80px;
-    border: rgba(255, 228, 196, 0.567) 5px solid;
+    border: rgba(255, 228, 196, 0.964) 5px solid;
 
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
    
 }
 
@@ -125,4 +127,13 @@ text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
 
 .catagch{
     margin-top: 10px;
+}
+
+
+/* sitebar */
+/* .nav-link.active p{
+    color: bisque;
+} */
+.nav-link.active svg {
+    fill: bisque;
 }

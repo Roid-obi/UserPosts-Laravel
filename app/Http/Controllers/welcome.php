@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\comment;
 use App\Models\post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class welcome extends Controller
@@ -24,13 +25,24 @@ class welcome extends Controller
 // halaman detail
     public function show($slug)
     {
+        $data = $slug;
         // $post = Post::where('slug', $slug)->firstOrFail();
+            $shareMedsos = \Share::page(
+                "https://github.com/Roid-obi/UserLogin-Laravel",
+                $data
+            )
+            ->facebook()
+            ->telegram()
+            ->twitter()
+            ->whatsapp()
+            ->linkedin();
         $post = post::where('slug', $slug)->with('tags', 'categories')->firstOrFail(); //agar urlnya slug
         $post->increment('views');
         $comments = Comment::where('post_id', $post->id)->with('user')->get(); //comment untuk postnya dipost tersebut
         return view('viewcen.detail-viewcen', [
             'post' => $post,
             'comments' => $comments,
+            'share' => $shareMedsos,
         ]);
     }
 
@@ -77,7 +89,7 @@ class welcome extends Controller
 
     // category di klik
     public function showCategory(Category $category) {
-        $title = 'Categories';
+        $title = "Categories : $category->nama";
         $tags = Tag::all();
         $posts = $category->categories()->paginate(4);
         $pinnedPosts = $category->categories()->where('is_pinned',true)->get()->all();
@@ -87,10 +99,16 @@ class welcome extends Controller
 
     // tag di klik
     public function showTag(Tag $tag) {
-        $title = 'Tags';
+        $title = "Tags : $tag->nama";
         $tags = Tag::all();
         $posts = $tag->tags()->paginate(4);
         $pinnedPosts = $tag->tags()->where('is_pinned',true)->get()->all();
         return view('viewcen.viewcen',compact(['posts','pinnedPosts','tags','title']));
     }
+
+
+
+
+
+
 }
