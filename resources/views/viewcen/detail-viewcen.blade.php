@@ -152,7 +152,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <form action="{{route('comment')}}" method="POST" style="margin-bottom: 50px">
+                    <form action="{{route('comment',$post->slug)}}" method="POST" style="margin-bottom: 50px">
                         @csrf
                         <h3 style=" font-family: Neucha, sans-serif;" class="pull-left" >Comment</h3>
                         
@@ -171,6 +171,8 @@
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
                                     <input type="hidden" name="post_id" value="{{ $post->id }}">  
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="parent_id" value="{{ $parent_id ?? null }}">
+
                                     <textarea class="inputcom form-control" name="content" id="message" placeholder="Your message" required=""></textarea>
                                     <button style="" type="submit" class="button-55 btn btn-normal pull-right">Submit</button>
                                 </div>
