@@ -14,7 +14,8 @@ class comment extends Model
     protected $fillable = [
         'user_id',
         'post_id',
-        'content'
+        'content',
+        // 'parent_id'
     ];
 
 
@@ -33,5 +34,9 @@ class comment extends Model
         return $this->belongsTo(post::class); //satu komentar untuk satu post
     }
 
+    public function replies()
+    {
+        return $this->hasMany(comment::class, 'parent_id');
+    }
     
 }

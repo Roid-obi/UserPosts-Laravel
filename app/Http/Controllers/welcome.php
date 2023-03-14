@@ -49,11 +49,18 @@ class welcome extends Controller
 
     // comment post
     public function StoreComment(Request $request){
-        comment::create([
-            'user_id' => $request->user_id,
-            'post_id' => $request->post_id,
-            'content' => $request->content
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'post_id' => 'required|exists:posts,id',
+            'content' => 'required|string|min:3|max:255',
+            'parent_id' => 'nullable|exists:comments,id',
         ]);
+        $comment = Comment::create($data);
+
+        if ($data['parent_id']) {
+            $parentComment = Comment::find($data['parent_id']);
+            $parentComment->replies()->save($comment);
+        }
         return redirect()->back();
     }
 

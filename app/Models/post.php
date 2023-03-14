@@ -71,5 +71,9 @@ class post extends Model
         return $this->hasMany(User::class, 'created_by');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(comment::class)->whereNull('parent_id');
+    }
 
 }
