@@ -152,10 +152,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
+                    @auth
                     <form action="{{route('comment',$post->slug)}}" method="POST" style="margin-bottom: 50px">
                         @csrf
                         <h3 style=" font-family: Neucha, sans-serif;" class="pull-left" >Comment</h3>
-                        
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">
@@ -171,15 +171,19 @@
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
                                     <input type="hidden" name="post_id" value="{{ $post->id }}">  
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    <input type="hidden" name="parent_id" value="{{ $parent_id ?? null }}">
+                                    <input type="hidden" name="parent_id" value="{{ $parent_id ?? null }}"> 
 
                                     <textarea class="inputcom form-control" name="content" id="message" placeholder="Your message" required=""></textarea>
                                     <button style="" type="submit" class="button-55 btn btn-normal pull-right">Submit</button>
                                 </div>
                             </div>
                         </fieldset>
-                        
                     </form>
+                    @endauth
+                    @guest
+    <p>Silakan <a href="{{ route('login') }}">login</a> atau <a href="{{ route('register') }}">register</a> untuk
+        mengomentari.</p>
+@endguest
                     <h3 style=" font-family: Neucha, sans-serif; ">{{$comments->count()}} Comments</h3>
 
                     {{-- @foreach ($comments as $comment)
@@ -281,14 +285,18 @@
                             <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
-
+{{-- input balas comen 1 --}}
                         <div class="collapse" id="replyComment{{ $comment->id }}">
                             <form action="{{ route('comment', ['post' => $post->slug]) }}" method="POST">
                             @csrf
-                            {{-- menyesuaikan method router --}}
-                            @method('POST') 
+                            @method('POST') {{-- menyesuaikan method router --}}
                             <div class="mb-3">
-                                <textarea autofocus class="form-control" id="content" name="content">{{ __('@:username ', ['username' => $comment->user->nama]) }}</textarea>
+                
+                                <textarea autofocus class="form-control" 
+                                id="content" 
+                                name="content"
+                                oninput="document.getElementById('counter_reply_comment{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'">{{ __('@:username ', ['username' => $comment->user->nama]) }}</textarea>
+                                <div id="counter_reply_comment{{ $comment->id }}"></div>
                             </div>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -311,7 +319,7 @@
                         <div class="comment__card">
                             <div class="comment__title">
                                 <span class="fs-5 fw-bold">
-                                    <img src="{{ ($reply->user->pp == null) ? asset('images/null.jfif') : asset('storage/images/'.$reply->user->pp) }}" class="rounded-circle" width="5%"> 
+                                    <img src="{{ ($reply->user->gambar == null) ? asset('images/null.jfif') : asset('storage/images/'.$reply->user->gambar) }}" class="rounded-circle" width="5%"> 
                                     &nbsp; {{ $reply->user->nama }}
                                 </span> 
                                 <span class="fs-6"> - {{ $reply->created_at->diffForHumans() }}</span>
@@ -357,12 +365,17 @@
                                 <button type="submit" class="btn btn-primary">Update</button>
                                 </form>
                             </div>
+{{-- input balas komen 2 --}}
                             <div class="collapse" id="replyReplyComment{{ $reply->id }}">
                                 <form action="{{ route('comment', ['post' => $post->slug]) }}" method="POST">
                                 @csrf
                                 @method('POST')
                                 <div class="mb-3">
-                                    <textarea autofocus class="form-control" id="content" name="content">{{ __('@:username ', ['username' => $reply->user->nama]) }}</textarea>
+                                    <textarea autofocus class="form-control" 
+                                    id="content" 
+                                    name="content"
+                                    oninput="document.getElementById('reply_reply_comment{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'">{{ __('@:username ', ['username' => $comment->user->nama]) }}</textarea>
+                                    <div id="reply_reply_comment{{ $comment->id }}"></div>
                                 </div>
                                 @error('content')
                                     <span class="invalid-feedback" role="alert">

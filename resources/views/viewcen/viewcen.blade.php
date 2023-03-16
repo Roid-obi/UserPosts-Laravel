@@ -209,7 +209,6 @@
   <section class="py-5 text-center container">
     
         <h1 class="fw-light">{{ $title }}</h1>
-        
       
   </section>
 
