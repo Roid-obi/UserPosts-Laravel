@@ -71,7 +71,8 @@
                                                               </div>
                                                           @endforeach
           
-                            <small class="text-muted float-end"><i class="bi bi-eye-fill"></i> {{ $post->post->views }}</small>
+                                                          <small>Views : {{ $post->post->views }}</small>
+                            {{-- <small class="text-muted float-end"><i class="bi bi-eye-fill"></i> {{ $post->post->views }}</small> --}}
                                       
                             <div class="d-flex justify-content-between align-items-center">
                               <div class="btn-group">

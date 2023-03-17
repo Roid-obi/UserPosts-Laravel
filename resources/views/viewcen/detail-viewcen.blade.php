@@ -142,7 +142,7 @@
         @endif
 
         <a href="/">
-            <button   type="button"  class="btn btn-sm btn-outline-secondary">Back</button>
+            <button   type="button"  class="btn btn-sm btn-outline-secondary">Back to Home</button>
         </a>
     </div>
 
@@ -174,7 +174,7 @@
                                     <input type="hidden" name="parent_id" value="{{ $parent_id ?? null }}"> 
 
                                     <textarea class="inputcom form-control" name="content" id="message" placeholder="Your message" required=""></textarea>
-                                    <button style="" type="submit" class="button-55 btn btn-normal pull-right">Submit</button>
+                                    <button style="" type="submit" class="button-55 btn btn-normal pull-right" >Submit</button>
                                 </div>
                             </div>
                         </fieldset>
@@ -271,7 +271,16 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <textarea class="form-control" id="content" name="content" class="form-control">{{ $comment->content }}</textarea>
+                                <textarea 
+                                class="form-control" 
+                                id="content" 
+                                name="content" 
+                                class="form-control" 
+                                maxlength="255"
+
+                                oninput="document.getElementById('counter_update{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'"
+                                >{{ $comment->content }}</textarea>
+                                <div id="counter_update{{ $comment->id }}"></div>
                             </div>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -295,6 +304,7 @@
                                 <textarea autofocus class="form-control" 
                                 id="content" 
                                 name="content"
+                                maxlength="255"
                                 oninput="document.getElementById('counter_reply_comment{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'">{{ __('@:username ', ['username' => $comment->user->nama]) }}</textarea>
                                 <div id="counter_reply_comment{{ $comment->id }}"></div>
                             </div>
@@ -351,7 +361,15 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="content" name="content" class="form-control"> {{ $reply->content }}</textarea>
+                                    <textarea 
+                                    class="form-control" 
+                                    id="content" 
+                                    name="content" 
+                                    class="form-control" 
+                                    maxlength="255"
+                                    oninput="document.getElementById('reply_update{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'"
+                                    >{{ $comment->content }}</textarea>
+                                    <div id="reply_update{{ $comment->id }}"></div>
                                 </div>
                                 @error('content')
                                     <span class="invalid-feedback" role="alert">
@@ -374,6 +392,7 @@
                                     <textarea autofocus class="form-control" 
                                     id="content" 
                                     name="content"
+                                    maxlength="255"
                                     oninput="document.getElementById('reply_reply_comment{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'">{{ __('@:username ', ['username' => $comment->user->nama]) }}</textarea>
                                     <div id="reply_reply_comment{{ $comment->id }}"></div>
                                 </div>
@@ -427,7 +446,14 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="content" name="content" class="form-control">{{ $reply2->content }}</textarea>
+                                            <textarea 
+                                            class="form-control" 
+                                            id="content" 
+                                            name="content" 
+                                            class="form-control" 
+                                            oninput="document.getElementById('reply_reply_update{{ $comment->id }}').textContent = (255 - this.value.length) + ' karakter tersisa'"
+                                            >{{ $comment->content }}</textarea>
+                                            <div id="reply_reply_update{{ $comment->id }}"></div>
                                         </div>
                                         @error('content')
                                             <span class="invalid-feedback" role="alert">
@@ -486,4 +512,10 @@
         }
     })
     );
+
+
+
 </script>
+
+
+

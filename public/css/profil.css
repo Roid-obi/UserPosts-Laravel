@@ -12,7 +12,7 @@ body{
 #profl{
     /* border: solid rgb(115, 159, 255) 3px; */
     height: 580px;
-    /* border-radius: 10px; */
+    border-radius: 5px;
 
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     
@@ -29,6 +29,7 @@ body{
     background-size: cover;
     /* border-radius: 7px; */
     height: 150px;
+    border-radius: 5px;
     
    border-bottom: rgba(255, 228, 196, 0.567) 5px solid;
 
@@ -137,3 +138,36 @@ text-shadow: 2px 2px 3px rgba(127, 127, 127, 0.3);
 .nav-link.active svg {
     fill: bisque;
 }
+
+
+.butn-edit-prof {
+
+    background-color: rgb(50, 50, 50);
+    border: solid rgba(255, 228, 196, 0.964) 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-top: 70%;
+    
+}
+
+/* .butn-edit-prof{
+    transition: transform 0.5s ease;
+} */
+
+/* .butn-edit-prof:hover {
+    
+} */
+
+
+.butn-edit-prof svg{
+    /* margin: 6px 0px 0px 6px; */
+    margin: 0 auto;
+    margin-top: 15%;
+    display: flex;
+    object-position: center;
+    color: rgb(199, 200, 204);
+    padding: 1px;
+}
+

@@ -15,7 +15,6 @@ class comment extends Model
         'user_id',
         'post_id',
         'content',
-        // 'parent_id'
     ];
 
 

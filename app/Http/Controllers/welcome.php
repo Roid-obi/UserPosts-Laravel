@@ -84,11 +84,11 @@ class welcome extends Controller
     {
         $comment = comment::findOrFail($id);
 
-        if ($comment->user_id != auth()->id()) {
-            abort(403);
-        }
-
+        $comment->replies()->update([
+            'parent_id' => null   //reply akan dibuat null agar jadi komen induk
+        ]);
         $comment->delete();
+        
 
         return back();
     }
